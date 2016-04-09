@@ -1,53 +1,47 @@
 var pageWidth = $(window).width();
 var pageHeight = $(window).height();
+var centerX = pageWidth/2;
+var centerY = pageHeight/2;
+var mouseX = 0;
+var mouseY = 0;
+
+const PI = Math.PI;
 
 var backCircle = {
-    x: 0,
-    y: 0,
-    angle: 0,
-    cx: 0,
-    cy: 0,
-    r: 10,
-    majorAxis: 1,
-    minorAxis: 1
-}
+  x: 0,
+  y: 0,
+  a: 0,
+  r: 0
+};
 
 var midEllipse = {
-    x: 10,
-    y: 10,
-    angle: 0,
-    cx: 0,
-    cy: 0,
-    r: 1,
-    majorAxis: 10,
-    minorAxis: 5
-}
+  x: 10,
+  y: 10,
+  a: 0,
+  r: 0
+};
 
 var frontEllipse = {
-    x: 10,
-    y: 20,
-    angle: 0,
-    cx: 0,
-    cy: 0,
-    r: 1,
-    majorAxis: 1,
-    minorAxis: 20
-}
+  x: 10,
+  y: 20,
+  a: 0,
+  r: 0
+};
 
 function start () {
-  
-  $( "#startpage" ).mousemove(function( e ) {
+  $( "#startpage" ).mousemove( function (e) {
     var msg = e.pageX + ", " + e.pageY;
-    changePosition(e.pageX, e.pageY);
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    changePosition();
   });
 }
 
-function changePosition (mouseX, mouseY) {
+function changePosition () {
 
-  var mouseAngle = ;
-  recalculatePositionOnTrack(backCircle);
-  recalculatePositionOnTrack(midEllipse);
-  recalculatePositionOnTrack(frontEllipse);
+  recalculatePositionOnTrack(backCircle, 20);
+  recalculatePositionOnTrack(midEllipse, 15);
+  recalculatePositionOnTrack(frontEllipse, 10);
 
   $('#back').css({ // defaults top: 0 left: 0
     left: backCircle.x,
@@ -55,31 +49,56 @@ function changePosition (mouseX, mouseY) {
   });
 
   $('#mid').css({ // defaults top: 10 left: 10
-    left: midEllipse.x + 10,
-    top: midEllipse.y + 10
+    left: midEllipse.x,
+    top: midEllipse.y
   });
 
   $('#front').css({ // defaults top: 10 left: 20
-    left: frontEllipse.x  + 20,
-    top: frontEllipse.y + 10
-  })
-
-
-
+    left: frontEllipse.x,
+    top: frontEllipse.y
+  });
 }
 
-function recalculatePositionOnTrack (obj) {
-  var rad = degreesToRadians(obj.angle);
-  
-  // equation for X and Y coordinates on a ellipse
-  obj.x = (obj.cx + obj.r * Math.cos(rad)) * obj.majorAxis;
-  obj.y = (obj.cy + obj.r * Math.sin(rad)) * obj.minorAxis;
+function recalculatePositionOnTrack (obj, radiusVariable) {
+  obj.a = getMouseAngle();
+  var rad = degreesToRadians(obj.a);
+  obj.r = getMouseLengthFromCenter()/radiusVariable;
 
-  //increase position on ellipse
-  obj.angle = obj.angle + 10;
+  // equation for X and Y coordinates on a circle
+  obj.x = obj.r * Math.cos(rad);
+  obj.y = obj.r * Math.sin(rad);
 }
 
-function degreesToRadians(angle) {
+function getMouseAngle () {
+  var dy = centerY - mouseY;
+  var dx = centerX - mouseX;
+  var angle = Math.atan(dy/dx);
+  var deg = radiansToDegrees(angle);
+
+  if (mouseIsLeftOfCenter()) {
+    deg = 180 + deg;
+  }
+
+  return deg;
+}
+
+function mouseIsLeftOfCenter () {
+  return mouseX - centerX < 0;
+}
+
+function mouseIsBelowCenter () {
+  return mouseY - centerY > 0;
+}
+
+function getMouseLengthFromCenter () {
+  return Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
+}
+
+function radiansToDegrees (angle) {
+  return angle * (180/Math.PI);
+}
+
+function degreesToRadians (angle) {
   return angle/180 * Math.PI;
 }
 
