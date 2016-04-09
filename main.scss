@@ -48,5 +48,25 @@ html, body {
         color: $lightGray;
       }
     }
-  }  
+  }
+  #startheart {
+    height: 20px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    fill: #b3b3b3;
+
+    &:hover {
+      fill: #999;
+    };
+  }   
+}
+
+#sidebar {
+  width: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100% ;
+  background-color: white;
 }
