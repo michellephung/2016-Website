@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Fredoka+One);
 
 $background: #f2f2f2;
-$darkGray: #666666;
-$medGray: #999999;
-$lightGray: #DCDCDC;
+$darkGray:rgba(102, 102, 102, 0.95);//#666666;
+$medGray: rgba(153, 153, 153, 0.9); //#999999;
+$lightGray: rgba(220, 220, 220, 1); // #DCDCDC;
 
 html, body {
   font-family: 'Fredoka One', cursive;
