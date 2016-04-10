@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Fredoka+One);
 
 $background: #f2f2f2;
-$darkGray:rgba(102, 102, 102, 0.95);//#666666;
-$medGray: rgba(153, 153, 153, 0.9); //#999999;
-$lightGray: rgba(220, 220, 220, 1); // #DCDCDC;
+$darkGray:rgba(102, 102, 102, 0.95);
+$medGray: rgba(153, 153, 153, 0.9); 
+$lightGray: rgba(220, 220, 220, 1); 
 
 html, body {
   font-family: 'Fredoka One', cursive;
@@ -49,24 +49,71 @@ html, body {
       }
     }
   }
-  #startheart {
-    height: 20px;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    fill: #b3b3b3;
-
-    &:hover {
-      fill: #999;
-    };
-  }   
 }
 
-#sidebar {
-  width: 40px;
+#startheart {
+  height: 20px;
   position: absolute;
+  bottom: 20px;
+  right: 20px;
+  fill: #b3b3b3;
+
+  &:hover {
+    fill: #777;
+  }
+}   
+
+#sidebar {
+  width: 75px;
+  position: fixed;
   right: 0;
   top: 0;
   height: 100% ;
-  background-color: white;
+  background-color: rgba(255,255,255,0);
+  -webkit-transition: background-color 1s; /* Safari */
+  transition: background-color 1s;
+  
+  &:hover, &.show{
+    background-color: rgba(255,255,255,1);
+  }
 }
+
+::selection {
+    background: rgba(163, 137, 56, 0.4);/* Safari */
+}
+
+::-moz-selection {
+    background: rgba(163, 137, 56, 0.4); /* Firefox */
+}
+
+.page {
+  min-height: 560px;
+  height: 100vh;
+  border: 1px solid rgba(255,255,255,0);
+
+  .title {
+    margin-top: 20vh;
+    margin-left: 10vw;
+    font-size: 10vw;
+    line-height: 1;
+  }
+
+  .body {
+    margin-left: 10vw;
+    margin-top: 50px;
+    width: 80vw;
+    font-size: 2.5vw;
+    max-height: 45vh;
+    overflow: hidden;
+  }
+}
+
+
+
+#hello {
+
+  .love {
+    color: #a38938;
+  }
+}
+

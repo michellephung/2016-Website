@@ -1,7 +1,9 @@
 define([
   'jquery',
-  'start',
-  'swapAllSVG'
-], function($, start, swapAllSVG) {
+  'startLetter',
+  'swapAllSVG',
+  'sidebar',
+  'start'
+], function($, startLetter, swapAllSVG,sidebar) {
 
 });
