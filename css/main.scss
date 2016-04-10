@@ -23,6 +23,11 @@ html, body {
   #letter {
     height: 100%;
     text-align: center;
+    -webkit-user-select: none; /* Webkit */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE 10  */
+    -o-user-select: none;
+    user-select: none;
 
     div {
       position: absolute;
@@ -133,11 +138,9 @@ html, body {
   }
 }
 
-
-
 #sidebar {
   width: 75px;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   height: 100%;
@@ -158,13 +161,9 @@ html, body {
     background: rgba(163, 137, 56, 0.4); /* Firefox */
 }
 
-.page {
-  min-height: 560px;
-  height: 100vh;
-  border: 1px solid rgba(255,255,255,0);
 
+.section {
   .title {
-    margin-top: 20vh;
     margin-left: 10vw;
     font-size: 10vw;
     line-height: 1;
@@ -177,26 +176,39 @@ html, body {
     font-size: 2.5vw;
     max-height: 45vh;
     overflow: hidden;
+    
+    @media screen and (max-width: 860px) {
+      font-size: 20px;
+      max-height: 80%;
+      width: calc(80% - 50px)
+    }
   }
-}
 
+  a {
+    text-decoration: none;
+    color: black;
+    display: block;
 
-#hello {
+    &:hover {
+      color: #a38938;
+    }
+  }
+
   .love {
     color: #a38938;
   }
 }
 
-#contact {
-  .gray {
-    color: #8C8C8C;
+#projects-div {
+  @media screen and (max-width: 860px) {
+    div {
+      margin-bottom: 10px;
+    }
   }
 }
 
-#things {
-  .body {
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+#contact-div {
+  .gray {
+    color: #8C8C8C;
   }
 }
