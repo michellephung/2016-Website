@@ -51,24 +51,96 @@ html, body {
   }
 }
 
-#startheart {
-  height: 20px;
+#startheart-container {
+  -webkit-transition: bottom 1s; /* Safari */
+  transition: bottom 1s, fill 0.5s;
   position: absolute;
   bottom: 20px;
   right: 20px;
-  fill: #b3b3b3;
+  height: 20px;
+  width: 50%;
 
-  &:hover {
-    fill: #777;
+  #startheart{
+    fill: #666666;
+    -webkit-transition: fill 0.5s;
+    transition: fill 0.5s;
+    height: 20px;
+    &:hover {
+      fill: #b3b3b3;
+    }    
+  }
+
+  &.moveup {
+    bottom: 60vh;
+    #startheart{
+      fill: black;
+
+      &:hover {
+        fill: #b3b3b3;
+      }
+    }
   }
 }   
+
+#hearts {
+  height: 20px;
+  width: 50%;
+
+  .heart {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    -webkit-transition: bottom 1s, fill 0.5s;
+    transition: bottom 1s, fill 0.5s;
+    fill: rgba(0,0,0,0);
+  }
+
+  #heart2{
+    height: 20px;
+    &.moveup {
+      fill: #4d4d4d;
+      bottom: 50vh;
+    }
+
+    &:hover{
+      fill: #b3b3b3;
+    }
+  }
+
+
+  #heart3 {
+    height: 20px;
+    &.moveup {
+      fill: #808080;
+      bottom: 40vh;
+    }
+
+    &:hover {
+      fill: #b3b3b3;
+    }
+  }
+
+  #heart4 {
+    height: 20px;
+    &.moveup {
+      fill: #b3b3b3;
+      bottom: 30vh;
+    }
+
+    &:hover {
+      fill: #ccc;
+    }
+  }
+}
+
+
 
 #sidebar {
   width: 75px;
   position: fixed;
   right: 0;
   top: 0;
-  height: 100% ;
+  height: 100%;
   background-color: rgba(255,255,255,0);
   -webkit-transition: background-color 1s; /* Safari */
   transition: background-color 1s;
@@ -109,11 +181,22 @@ html, body {
 }
 
 
-
 #hello {
-
   .love {
     color: #a38938;
   }
 }
 
+#contact {
+  .gray {
+    color: #8C8C8C;
+  }
+}
+
+#things {
+  .body {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+  }
+}

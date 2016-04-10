@@ -1,5 +1,14 @@
 div#sidebar
-  img#startheart.svg(src="assets/heart.svg")
+  div#hearts
+    a(href='#work')
+      img#heart2.heart.svg(src="assets/heart.svg")
+    a(href='#projects')
+      img#heart3.heart.svg(src="assets/heart.svg")
+    a(href='#things')
+      img#heart4.heart.svg(src="assets/heart.svg")
+  div#startheart-container
+    a(href='#hello')
+      img#startheart.heart.svg(src="assets/heart.svg")
 div#startpage 
   div#letter
     div
@@ -29,17 +38,27 @@ div#projects.page
     div OpenProcessing
     div Relationship Visualizers
     div RaphealJS Tutorials
-    div Interactive Book “Digital Logic”
+    div Interactive Book "Digital Logic"
 div#contact.page
   div.title Contact
   div.body 
-    div email:
+    div
+      span.gray email:
     div michellephung@gmail.com
     div michellep@apache.org
-    div github: michellephung
-    div openprocessing: michellep
-    div irc: michellep
-    div del.icio.us: michellep
+    br
+    div 
+      span.gray github: 
+      | michellephung
+    div 
+      span.gray openprocessing: 
+      | michellep
+    div 
+      span.gray irc: 
+      | michellep
+    div 
+      span.gray del.icio.us: 
+      | michellep
 div#things.page
   div.title Things I like
   div.body
@@ -53,7 +72,8 @@ div#things.page
     div snowboarding
     div thoughtfulness
     div puns
-    div reading weekends
+    div reading
+    div weekends
     div doggies and kittys
     div history
     div swimming
@@ -64,8 +84,8 @@ div#things.page
     div love
     div learning
     div religion
-    div music LED
-    div alcohol 
+    div music
+    div LEDs
     div open source
     div art
 
