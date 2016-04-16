@@ -8,11 +8,19 @@ define([
     flashSubtitles: function () {
       var work = $('#projects-div .body .subtitle');
       //flash of titles
-      work.addClass('fadein');
+      work.each(function (i, el) {
+        setTimeout(function () {
+          $(el).addClass('fadein');
+        }, i*150);
+      });
 
       setTimeout(function () {
-        work.removeClass('fadein');
-      }, 900);
+        work.each(function (i, el) {
+          setTimeout(function () {
+            $(el).removeClass('fadein');
+          }, i*150);
+        });
+      }, 600);
     }
   }
 
