@@ -7,7 +7,6 @@ define([
     },
     flashSubtitles: function () {
       var work = $('#projects-div .body .subtitle');
-      console.log("projects");
       //flash of titles
       work.addClass('fadein');
 
