@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/mortgageCalc.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Mortgage visualizer</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav mortgage-calc" role="navigation">
+      <li><a id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a id="rectangle" href="rectangle.html">Drawing</a></li>
+      <li><a id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	<li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Mortgage visualizer</h1>
+          
+        </header>
+        
+<div class='intro'>
+  <p class='col1'>Set the value of your home, down payment, and interest rate. The visualizer will show your monthly payment and the total cost of your loan. Notice the relationship between your loan amount and the total cost of the loan after interest.</p>
+  <p class='col2'></p>
+</div>
+
+<div class="inputs"> 
+
+  <form>
+    <div class='formSection'>
+      <fieldset>
+        <label>Purchase price</label>
+        <span class='input'>$<input  id="priceBox" type="text" value="700000" /></span>
+        <div class="slider" id="priceSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Down payment</label>
+        <span class='input'>$<input  id="downPaymentBox" type="text"  ></span>
+        <div class="slider" id="downPaymentSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Interest rate</label>
+        <span class='input'><input  id="interestBox" type="text" value="5" />%</span>
+        <div class="slider" id="interestSlider"></div>
+      </fieldset>
+
+      <fieldset>
+        <label>Term</label>
+        <span class='input'><input  id="termBox" type="text" value="30" />years</span>
+        <div class="slider" id="termSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Monthly payment</label>
+        <p class="output" id="pay"></p>
+        <label>Total paid</label>
+        <p class="output" id="totalPaid"></p>
+      </fieldset>
+    
+    </div>
+    
+    <div class='formSection'>          
+      <fieldset>
+        <label>Extra payment</label>
+        <span class='input'>$<input  id="extraPay" type="text" value="100">/ month</span>
+      </fieldset>
+      
+      <fieldset>
+        <label>Monthly fixed + extra payment</label>
+        <p class="output">$<span class="extraMonthyPayment"></span></p>
+        <label>Saved over the course of the loan</label>
+        <p class="output">$<span class="extraTotalSavings"></span></p>
+        <label>Paid off after</label>
+        <p class="output"><span class="extraFinishedIn"></span> years</p>
+      </fieldset>
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame">
+    <div id="pie" class="canvas"></div>
+    <div id="fixedYearlyPaymentVisual" class="canvas"></div>        
+  </div>
+  
+  <div class="col1">
+    <p>The pie chart on the left shows the ratio of loan amount to interest paid if you pay your mortgage according to schedule. Over the life of the loan, you will pay the original <span id="piePrinciple">$<span id="pieAmountP"></span> principle</span>, plus an additional <span id="pieInterest">$<span id="pieAmountI"></span> in interest.</span></p>
+    <p>The chart on the right shows the advantage of paying extra each month. If you pay $<span class="extraMonthyPayment">100</span> each month, you'll save $<span class="extraTotalSavings"></span> and pay back your loan in <span class="extraFinishedIn"></span> years.</p>
+  </div>
+  
+  <div class="col2">
+    <p>The bar graph shows the composition of your payments in each year of the loan. In the beginning you pay much more interest than principal. As the term of the loan goes on the ratio inverts.</p>
+  </div>
+
+
+<p>There are actually two canvases here, one for the pie charts and another for the bar graph.</p>
+
+<p>Similar to our slider application, the SVG elements on this page are constantly being wiped clear, then redrawn with new coordinates. To begin, declare a couple <code>&lt;div&gt;</code> sections and assert id's on them so that we can have canvases to work with.</p>
+
+<p>In addition to the Rapha&#235;l JavaScript library of functions that help manipulate SVG elements, Rapha&#235;l also has a library dedicated to making graphs, called gRapha&#235;l. The pie charts above are a result of this library.</p>
+
+<p>The library and information can be downloaded and viewed at their website.</p>
+
+<h2 id="pie-chart-head">Pie Chart</h2>
+
+<p>To draw a pie chart using the gRapha&#235;l library, download and include the following files into your webpage file:</p>
+
+<ul>
+<li>raphael.js</li>
+<li>g.raphael.js (12 Kb)</li>
+<li>g.pie.js</li>
+</ul>
+
+
+<p>The standard pie chart is straightforward to set up. However, you can modify the g.pie.js file so that your chart has more features.</p>
+
+<p>For example, one of our pie graphs' colors are translucent. In order to achieve this, a new attribute (opacity) needs to be added to the g.pie.js file. Specifically, line 56. Which is:</p>
+
+<pre><code>var p = this.path(opts.init ? ipath : path).attr({
+  fill: opts.colors &amp;&amp; opts.colors[i] || this.g.colors[i] ||"#666",
+  stroke: opts.stroke || "#fff", 
+  "stroke-width": (opts.strokewidth == null ? 1 : opts.strokewidth), 
+  "stroke-linejoin": "round" 
+});
+</code></pre>
+
+<p>This bit of code determines which attributes the programmer can change via the function call. If we add an attribute for opacity to this list, we can then change the opacity of our pie chart when we draw it.</p>
+
+<p>The modified code:</p>
+
+<pre><code>var p = this.path(opts.init ? ipath : path).attr({
+  fill: opts.colors &amp;&amp; opts.colors[i] || this.g.colors[i] ||"#666",
+  stroke: opts.stroke || "#fff", 
+  "stroke-width": (opts.strokewidth == null ? 1 : opts.strokewidth), 
+  "stroke-linejoin": "round", 
+  "fill-opacity":opts.opacity[i]
+});
+</code></pre>
+
+<p>now, when we call the method, we can pass in values for opacity:</p>
+
+<pre><code>var myPie = pie.g.piechart(
+  X,
+  Y, 
+  radius, 
+  [principleAmount/total, interest/total],
+  {colors:[principleColor, interestColor], 
+  opacity:[.4,.4]
+  }
+);
+</code></pre>
+
+<p>Additionally, it was necessary to remove the sorting algorithm. The standard code for drawing this, automatically places the larger piece of the pie on the top, which was inconvenient for our purposes, since that meant the colors would suddenly switch, as numbers would recalculate. To remedy this, the method <code>.sort()</code> had to be removed from the pie chart function. (Line 46-48).</p>
+
+<p>The values of the principle and interest change on the charts as you vary the loan amount, down payment, interest rate, etc. The labels on the chart reflect those changes each time one of the above variables are changed.</p>
+
+<p>Since the pie chart is being redrawn each time a new calculation occurs, this number change happens because a variable is passed into the declaration for the labels each time.</p>
+
+<p>For example, instead of:</p>
+
+<pre><code>pie.text(xLocation, yLocation, "$25000");
+</code></pre>
+
+<p>We write:</p>
+
+<pre><code>pie.text(xLocation, yLocation, "$"+total);
+</code></pre>
+
+<p>So <code>total</code>, a previously declared variable, will constantly update the number fields and be relevant, instead of passing just '$25000' which is a static number. As the page renders, the variable <code>total</code> will be accurate each time.</p>
+
+<h2>Bar Graph</h2>
+
+<p>The bar graph is not a part of Rapha&#235;l's JavaScript library. The method to draw the bar graph involves a for-loop, which loops as many times as there are years. On each iteration of the for-loop, two rectangles are created (one for principle, one for interest). These rectangles are placed stacked vertically on the canvas, with about 2 pixels separating them.</p>
+
+<p>A variable which holds the starting coordinates for the next newly created element is offset each time the loop iterates, so that eventually the rectangles takes on a familiar image of a bar graph, and it's evident what's happening throughout the years of your loan.</p>
+
+<p>The last caveat of this bar graph is its ability to be contained in a fixed area. To achieve this, before working with the principle amount and interest amount numbers, you must divide them by the desired height of your graph, then pass those quotients into the <code>.rect()</code> method as heights. Similarly, you must divide the number of years by the desired length of your fixed graph (and pass that quotient into the length of your <code>.rect()</code> method ), since the rectangle sizes are direct reflections of those numbers.</p>
+  
+</div>
+
+<script type="text/javascript">
+  var calc = new MortgageCalculator();    
+</script>
+      </article>
+    </section>
+  </body>
+</html>

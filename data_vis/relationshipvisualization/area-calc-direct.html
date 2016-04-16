@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	
+  	<script type="text/javascript" src="javascripts/areaCalculator.js"></script>
+		<script type="text/javascript" src="javascripts/draggableView.js"></script>
+    
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Fixed area visualizer: Direct manipulation</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav area-calc-direct" role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+      <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Fixed area visualizer: Direct manipulation</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p class='col1'>The values x, y, and area exist in relationship. Manipulating one value impacts the others.</p>
+  <p class='col2'>Here, alter the values by typing or by dragging the top or right edge of the blue box.</p>
+</div>
+
+<div class="inputs">
+  <form>
+    <div class="formSection">
+      <fieldset>
+        <label>Relationship</label>
+        <span class="output">x * y = area</span>
+      </fieldset>    
+    </div>
+    
+    <div class="formSection">
+      <fieldset>
+        <label>x</label>
+        <input class="input" id="xBox" type="text" value="55"/>
+      </fieldset>
+      
+      <fieldset>
+        <label>y</label>
+        <input class="input" id="yBox" type="text" value="54"/>
+      </fieldset>
+      
+      <fieldset>
+        <label>area</label>
+        <input class="input" id="areaInput" type="text" value="2970"/>
+        <div id="areaSlider" class="slider" style="margin-left: 0;"></div>
+      </fieldset>
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div id="areaCalcDirectCanvas" class="canvasFrame">
+    <div id="draggableArea"></div>
+  </div>
+</div>
+
+ <script type="text/javascript">
+  var calc = new AreaCalculator();
+  var view = new AreaCalculatorDraggableView(calc);
+</script>
+      </article>
+    </section>
+  </body>
+</html>

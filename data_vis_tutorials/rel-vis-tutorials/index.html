@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	
+  	<script type="text/javascript" src="javascripts/areaCalculator.js"></script>
+		<script type="text/javascript" src="javascripts/draggableView.js"></script>
+    <script type="text/javascript" src="javascripts/sliderView.js"></script>
+		<script type="text/javascript" src="javascripts/exampleView.js"></script>
+    <script type="text/javascript" src="javascripts/mortgageCalc.js"></script>
+    <script type="text/javascript" src="javascripts/rectangles.js"></script>
+    <script type="text/javascript" src="javascripts/seesawCalc.js"></script>
+    <script type="text/javascript" src="javascripts/seesawView.js"></script>
+    <script type="text/javascript" src="javascripts/screenResolutionCalc.js"></script>
+    <script type="text/javascript" src="javascripts/screenResolutionView.js"></script>
+
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Relationship visualization</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav " role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="rectangle" href="rectangle.html">Drawing</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	    <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+	  </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Coding Examples for Relationship Visualizations</h1>
+        </header>
+
+<div class="main">
+
+
+<h2>Technically speaking</h2>
+
+<p>We use three languages to create the examples: HTML, SVG, and JavaScript. We also use a library of JavaScript code called Rapha&#235;l.</p>
+
+<h3>HTML and SVG</h3>
+
+<p>HTML and SVG are known as markup languages. They carry content and extra information about that content, they enable people to mark up content with additional information.</p>
+
+<p>They are written in very much the same way. Here's an example of HTML in which we create a paragraph containing the words "Hello, world!":</p>
+
+<pre><code>&lt;p class="greeting"&gt;Hello, world!&lt;/p&gt;
+</code></pre>
+
+<p>Here is an example of creating a rectangle in SVG:</p>
+
+<pre><code>&lt;rect width="400" height="300"/&gt;
+</code></pre>
+
+<p>Both languages use tags to create elements of a given type. Writing a <code>p</code> tag creates a paragraph element in a page. Writing a <code>rect</code> tag creates a rectangle element in a page. Each language supports specific tags. We'll introduce a few, but we'll leave you to explore them in depth.</p>
+
+<p>Tags in both HTML and SVG hold additional information in the form of  attributes. <code>class="greeting"</code> and <code>width="400"</code> are attributes. Writing an attribute in a tag creates an element with meta-data. Our rectangle isn't any old rectangle, it's a 400 pixel wide rectangle. Each type of element supports specific tags. We'll only cover a few.</p>
+
+<p>Tags in both languages can be nested within other tags. A web page is composed of a hierarchy of nested tags. This is what nested tags look like:</p>
+
+<pre><code>&lt;ol class='languages'&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;SVG&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+
+<p>We have written an <code>ol</code> tag containing three <code>li</code> tags. This creates an ordered (numbered) list element containing three list item elements. When rendered in a browser, the list items are automatically numbered: 1, 2, 3.</p>
+
+<h3>JavaScript and Rapha&#235;l</h3>
+
+<p>JavaScript is a programming language used primarily to make web pages interactive. People use JavaScript to create and manipulate HTML and SVG elements. People also use JavaScript to communicate with web servers to send and retrieve data, but we won't cover that in these exercises.</p>
+
+<p>We use a JavaScript library called Rapha&#235;l in order to create and manipulate SVG elements with more flexibility. This is what it looks like to create an SVG rectangle using Rapha&#235;l:</p>
+
+<pre><code>drawingArea.rect(0, 0, 400, 300);
+</code></pre>
+
+<p>We'll explain Rapha&#235;l in more detail as we go on.</p>
+
+<p>Find more information about <a href="http://raphaeljs.com/" title="Raphael JS">Rapha&#235;l</a>,
+including many more examples on the <a href="http://raphaeljs.com/" title="Raphael JS">Rapha&#235;l website</a>.</p>
+
+<h2>Hello World</h2>
+
+<p>You will need a text editor that exports plain-text files in order to follow along with the examples.
+On the Mac, consider <a href="http://www.barebones.com/products/textwrangler/" title="TextWrangler">TextWrangler</a>, on Windows try Notepad.
+TextWrangler is free, Notepad comes installed with Windows.</p>
+
+<p>Each example builds upon the same setup, a folder containing two files:</p>
+
+<ul>
+<li>raphael.js: a JavaScript file containing the Rapha&#235;l library</li>
+<li>index.html: an HTML file we'll open in a web browser to see our work</li>
+</ul>
+
+
+<p>Download raphael.js from the <a href="http://raphaeljs.com" title="Raphael JS">Rapha&#235;l website</a>.</p>
+
+<p>index.html should contain this:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Relationship Visualizer Explorations&lt;/title&gt;
+        &lt;script src="raphael.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Relationship Visualizer Explorations&lt;/h1&gt;
+        &lt;div id="myDrawingSpace"&gt;&lt;/div&gt;
+        &lt;script&gt;
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Our document has three tags you should notice: <code>head</code>, <code>body</code>, and <code>script</code>.
+The <code>head</code> tag holds other tags providing additional information about our page.
+Our <code>head</code> tag contains two tags now. A <code>title</code> tag, which sets the title in your browser's title bar,
+and a <code>script</code> tag. The <code>script</code> tag loads Rapha&#235;l so we can use it in our page.</p>
+
+<p>Generally, the <code>body</code> tag is where we put page content. Our <code>body</code> tag contains three tags; an <code>h1</code>, a <code>div</code>, and another <code>script</code>. Writing an <code>h1</code> tag creates an important heading, often the headline of a page. the <code>div</code> tag creates an empty division element. The <code>div</code> will not appear if you load the page now. We'll use Rapha&#235;l to draw shapes into it. The second <code>script</code> tag is where we will write JavaScript to create SVG shapes, and eventually to make them interactive.</p>
+</div>
+      </article>
+    </section>
+  </body>
+</html>

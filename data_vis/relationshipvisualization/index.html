@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Relationship visualization</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav " role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	    <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+	  </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Relationship visualization</h1>
+          
+        </header>
+        
+
+<div class="main">
+
+<p>A summary argument:</p>
+
+<ul>
+<li>Continued growth of internet, mobile, and sensor based applications means an explosion of data---a "big data" world.</li>
+<li>Big data requires visualization to provide meaning.</li>
+<li>Data visualization will become an important and large field of design.</li>
+<li>Data visualization will have many sub-disciplines.</li>
+<li>Relationship visualization is a sub-discipline of data visualization.</li>
+</ul>
+
+
+<p>Relationship visualization provides tools that help people explore relationships between factors in a system.
+For example, if I want to take out a loan, how much will I pay overall, if the interest rate is x%?
+What happens if I pay off the loan in y years instead of 30 years?</p>
+
+<p>Until recently, we've had to make do with tables or graphs or work out the calculations by hand.
+More recently, we've seen special purpose calculators, e.g., mortgage calculators.
+But it's possible to provide interactive diagrams---relationship visualizations---which support reader interaction with a set of related factors.
+Move the interest rate handle up or down, see the graph go up or down.</p>
+
+<p>Where things get interesting is when many factors interact and affect each other.
+For example, total home price, points, percent down, interest rate, length of loan, number of payments per month.
+All these factors affect the loan principle, size of individual payment, and total paid.
+The possible combinations are almost infinite.
+Users may start in different place.
+Perhaps you know the total you can afford per month and want to find the largest loan you can afford.
+Or you want to buy a particular house and want to know what's the maximum interest rate you can afford.</p>
+
+<p>Being able to "play" with the variables---twiddle the factor dials---is a way to experiment
+which is a way to understand or learn.
+So we might say that a mortgage factor relationship visualizer is a tool for learning about mortgages.
+And it's more.
+Learning and designing are closely coupled.
+Learning involves acting in the environment, experimenting---prototyping mortgages in our example.
+So we might also say that a mortgage factor relationship visualizer is a tool for designing your own mortgage.
+And designing relationship visualizers is (in part) about designing tools which enable others to design.</p>
+
+<p>There's also a technical side to the argument.
+Tools like Flash and Processing have made data visualization more accessible to designers and also offer possibilities for creating relationship visualizations.
+In theory, one can create infinitely rich environments with those and other tools,
+but in practice they exist in boxes walled off from the larger environment in which they are presented---that is web pages or e-books (which are also essentially web pages---for the most part).</p>
+
+<p>However, the advent of HTML5, CSS3, and recent changes to the DOM (Document Object Model) create a growing platform on which data visualizations and relationship visualizations can be built and fully integrated into the presentation environment.
+In this platform users can manipulate objects on screen creating JavaScript events which redraw SVG objects.
+This combination has the potential to become quite powerful.
+What's needed now are libraries---building blocks---to make the development process easier.</p>
+
+<p>We've begun to build examples.
+We invite your comment.</p>
+
+<h2>Play along (or not)</h2>
+
+While interact interacting with the examples, consider the role designers can play in visualizing the massive data we collect.
+Can you think of other relationships in need of visualization?</p>
+
+</html>

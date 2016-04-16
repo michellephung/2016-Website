@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/exampleView.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Drag to move and resize an SVG element</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav move-resize-svg" role="navigation">
+      <li><a id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a id="rectangle" href="rectangle.html">Drawing</a></li>
+      <li><a id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	<li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Drag to move and resize an SVG element</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p>Here we demonstrate the use of JavaScript and SVG to model behavior of an operating system window.</p>
+</div>
+<div class='inputs'>
+  <form class="formSection">
+    <fieldset>
+      <label>Resize</label>
+      <p>Drag lower-right corner of the blue box</p>
+    </fieldset>
+    
+    <fieldset>
+      <label>Reposition</label>
+      <p>Drag the center of the blue box</p>
+    </fieldset>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame"> 
+    <div id="draggableArea"></div>
+  </div>
+
+  <p>This canvas has two elements. The bigger blue box, which can be moved around using drag and drop, and the smaller blue box in the lower right corner, which resizes the box using drag and drop.</p>
+
+<p>Raphael has a method called <code>.drag()</code>, which allows you to track your mouse coordinates if they click on the element. Using these mouse coordinates, you can reposition the element, or make the element bigger or smaller.</p>
+
+<p>For this demonstration, the <code>.drag()</code> function is called twice. Once when the big box is selected (for repositioning), and once when the small box is selected (for resizing).</p>
+
+<p>Like the other examples, to start, add a <code>&lt;div&gt;</code> to attach a Raphael canvas.  Then put a rectangle on it using JavaScript.</p>
+
+<pre><code>&lt;body&gt;
+  &lt;div id='myShape'&gt;&lt;/div&gt; 
+
+  &lt;script  type="text/javascript"&gt;
+    var paper = Raphael("myShape",500, 500);
+    var rectangle = paper.rect(50, 340, 30, 60);
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>The variable rectangle is the SVG element. Calling the method <code>.drag()</code> on it, will allow access to mouse coordinates as the mouse moves around.</p>
+
+<p>After you declare the rectangle, set it's color attributes so that you can see box. In order to drag and drop the element, you must declare the fill color attribute.</p>
+
+<pre><code>var rectangle = paper.rect(50, 340, 30, 60);
+rectangle.attr("stroke", "#000");
+rectangle.attr('fill', '#FFF');
+</code></pre>
+
+<h2 id="Repositioning">Repositioning</h2>
+
+<p>Starting with the ability to move the element around the canvas, the <code>.drag()</code> method calls three other functions.</p>
+
+<pre><code>Rectangle.drag(move, start, up);
+</code></pre>
+
+<p>The <code>start()</code> function stores the mouse coordinates at the position being clicked.</p>
+
+<pre><code>var start = function(){
+  rectangle.ox = rectangle.attr("x");
+  rectangle.oy = rectangle.attr("y");
+}
+</code></pre>
+
+<p>The function <code>move()</code> manipulates the coordinates of the element via the <code>.attr()</code> function. The parameters <code>dx</code> and <code>dy</code> are passed in from the <code>drag()</code> method. These are amount of pixels the mouse has moved in either direction, so <code>dx</code> is the number of pixels the mouse has moved horizontally from this original position clicked, and <code>dy</code> is the number of pixels the mouse has moved vertically from the original position.</p>
+
+<pre><code>var move = function(dx,dy){
+  rectangle.attr({
+    x:rectangle.ox+dx,
+    y:rectangle.oy+dy
+  });
+}
+</code></pre>
+
+<p>The <code>up()</code> function is empty for now. This function is implemented when the mouse click is let up, meaning when the element is 'dropped.'</p>
+
+<p>You must declare the <code>move()</code>,<code>start()</code>, and <code>up()</code> functions before calling the <code>drag()</code> method on the rectangle element.</p>
+
+<h3>Code:</h3>
+
+<pre><code>&lt;!html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript" src="Raphael.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/   jquery/1.3/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id='myShape'&gt;&lt;/div&gt; 
+&lt;/body&gt;
+
+
+&lt;script  type="text/javascript"&gt;
+
+  var paper = Raphael("myShape",500, 500);
+
+  var rectangle = paper.rect(50, 340, 30, 60);
+  rectangle.attr("stroke", "#000");
+  rectangle.attr("fill", "#fff");
+
+  var start = function(){
+    rectangle.ox = rectangle.attr("x");
+    rectangle.oy = rectangle.attr("y");
+  }
+
+  var move = function(dx,dy){
+    rectangle.attr({
+      x:rectangle.ox+dx,
+      y:rectangle.oy+dy
+    });
+  }
+
+  var up= function(){
+    //this method is optional
+  }
+
+  rectangle.drag(move,start,up); 
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>Resizing</h2>
+
+<p>For resizing, we also use the <code>drag()</code> method, but we tweak the <code>move()</code> function, so that instead of just setting new x and y coordinates for the element, it adds or subtracts the length of distance moved with the mouse to the length and width attributes of the element.</p>
+
+<p>For the resizing the rectangle, we will add on to the above code. Firstly, we declare another rectangle, which will be our 'handle' for grabbing to resize. When we click and drag on this handle the bigger box will resize itself according to where you drag the handle.</p>
+
+<p>Again, you must declare the color to the fill of the element for this to work. In our example, we place the resize handle in lower right corner.</p>
+
+<pre><code>var resizer = paper.rect(70,390,10,10);
+resizer.attr("fill", "#fff");
+resizer.attr("stroke", "#000");
+</code></pre>
+
+<p>Since the function of this smaller rectangle is different from the bigger rectangle, we will declare different functions for <code>move()</code> and <code>start()</code>.  In our newer <code>start()</code> function, called <code>resizerStart()</code>, we grab the coordinates of the resize handle, and the length and width of the big rectangle, for later reference.</p>
+
+<pre><code>var resizerStart = function(){
+  resizer.ox= resizer.attr('x');
+  resizer.oy= resizer.attr('y');
+
+  rectangle.ow=rectangle.attr("width");
+  rectangle.oh=rectangle.attr("height");
+}
+</code></pre>
+
+<p>The <code>resizerMove()</code> method changes the length and width of the big rectangle, and it changes the coordinates of the resize handle rectangle, so that as the big rectangle expands and shrinks, the resize handle stays in the lower right corner of the bigger rectangle.</p>
+
+<pre><code>var resizerMove = function(dx,dy){
+  rectangle.attr({
+    width: rectangle.ow+dx,
+    height: rectangle.oh+dy,
+
+  });
+
+  resizer.attr({
+    x: resizer.ox+dx,
+    y: resizer.oy+dy
+  });
+}
+</code></pre>
+
+<p>Furthermore, the previous <code>start()</code> method must be changed as well, so that when the bigger rectangle is being repositioned, the resize handle remains in the lower right corner of the big rectangle as it moves around the canvas. We must add a way so that the resizer's coordinates change as the rectangle changes.</p>
+
+<pre><code>var move = function(dx,dy){
+  rectangle.attr({
+    x: rectangle.ox+dx,
+    y: rectangle.oy+dy
+  });
+
+  resizer.attr({
+    x: rectangle.attr('x') + rectangle.attr('width') - resizer.attr('width'), 
+    y: rectangle.attr('y') + rectangle.attr('height') - resizer.attr('height')
+  });
+}
+</code></pre>
+
+<h2 id="finalnotes">Some final notes...</h2>
+
+<p>The <code>.attr()</code> method can be used several ways, and the a number of attributes that can be manipulated is extensive. Check the documentation on the Raphael website for more attributes (like color, opacity, cursor image, etc).</p>
+
+<p>a 'getter' will return the x-coordinate of the rectangle element, like so:</p>
+
+<pre><code>rectangle.attr('x') 
+</code></pre>
+
+<p>a 'setter' will set the x-coordinate of the rectangle element to 50 pixels, to implement we write:</p>
+
+<pre><code>rectangle.attr('x', 50) 
+</code></pre>
+
+<p>and finally, to declare multiple attributes in one declaration:</p>
+
+<pre><code>rectangle.attr({
+  x:20, 
+  y:30
+});
+</code></pre>
+
+<p>Note the use of {curly brackets} to set multiple at attributes at once. This one sets the x-coordinate to 20 pixels, and the y-coordinate to 30 pixels.</p>
+
+<h3>Code:</h3>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script type="text/javascript" src="Raphael.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" 
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"&gt;
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id='myShape'&gt;&lt;/div&gt; 
+  &lt;/body&gt;
+
+
+  &lt;script  type="text/javascript"&gt;
+
+    var paper = Raphael("myShape",500, 500);
+
+    var rectangle = paper.rect(50, 340, 30, 60);
+    rectangle.attr("stroke", "#000");
+    rectangle.attr("fill", "#fff");
+
+    var sizer = paper.rect(70,390,10,10);
+    sizer.attr("fill", "#fff");
+    sizer.attr("stroke", "#000");
+
+    var start = function(){
+      rectangle.ox = rectangle.attr("x");
+      rectangle.oy = rectangle.attr("y");
+    }
+
+    var move = function(dx,dy){
+      rectangle.attr({
+        x:rectangle.ox+dx,
+        y:rectangle.oy+dy
+      });
+
+      sizer.attr({
+        x: rectangle.attr('x') + rectangle.attr('width') - sizer.attr('width'), 
+        y: rectangle.attr('y') + rectangle.attr('height') - sizer.attr('height')
+      });
+    }
+
+    var sizerStart = function(){
+      sizer.ox=sizer.attr('x');
+      sizer.oy=sizer.attr('y');
+
+      rectangle.ow=rectangle.attr("width");
+      rectangle.oh=rectangle.attr("height");
+    }
+
+    var sizerMove = function(dx,dy){
+      rectangle.attr({
+        width:rectangle.ow+dx,
+        height:rectangle.oh+dy,
+      });
+
+      sizer.attr({
+        x:sizer.ox+dx,
+        y:sizer.oy+dy
+      });
+    }
+
+    var up= function(){
+      //this method is optional
+    }
+
+    rectangle.drag(move,start,up);
+    sizer.drag(sizerMove,sizerStart);
+
+
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+  
+  </div>
+
+<script type='text/javascript'>
+  var view = new MoveAndDrag();
+</script>
+      </article>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/rectangles.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Drawing shapes with SVG</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav rectangle" role="navigation">
+      <li><a id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a id="rectangle" href="rectangle.html">Drawing</a></li>
+      <li><a id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	<li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Drawing shapes with SVG</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p class='col1'></p>
+  <p class='col2'></p>
+</div>
+
+<div class="inputs">
+  <form>
+
+    
+    <div class="formSection">
+      <fieldset>
+      <label>Try these colors</label>
+      </fieldset>
+      <fieldset>
+        <div id="blue" class="colorBoxes"></div>
+        <div class="colorCode">
+          <code>blueRect.attr("fill","#0095cb");</code>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <div id="magenta" class="colorBoxes"></div>
+        <div class="colorCode">
+          <code>magentaRect.attr("fill","#BE007F");</code>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <div id="green"class="colorBoxes"></div>
+        <div class="colorCode">
+          <code>greenRect.attr("fill","#f95b00");</code>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <div id="orange" class="colorBoxes"></div>
+          <div class="colorCode">
+            <code>orangeRect.attr("fill", "#f95b00");</code>
+          </div>
+      </fieldset>
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div id="rectangleTutorialCanvas" class="canvasFrame">
+    <div id="myShapes"></div>
+  </div>
+  
+  <p>Here are a series of rectangles created using SVG. Setting the attributes, you can adjust the size and color of your elements.</p>
+
+<p>Let's draw a rectangle for our page.</p>
+
+<p>Make a container for our rectangle. Create a <code>&lt;div&gt;</code> tag in the body of our document by typing the following between the opening <body> tag and closing </body> tag. We give our container an <code>id</code> attribute so we can select it from other places in our code.</p>
+
+<pre><code>&lt;div id="myDrawingSpace"&gt;&lt;/div&gt; 
+</code></pre>
+
+<p>The script section within the body of our HTML file is a place we use JavaScript to program our page. Before we can draw a shape we need to create a space to draw within. Between the opening <code>&lt;script&gt;</code> tag and closing <code>&lt;/script&gt;</code> tag within the body, add the following to create a drawing space:</p>
+
+<pre><code>var paper = Raphael("myDrawingSpace", 500, 500);
+</code></pre>
+
+<p>This creates a 500 x 500 pixel drawing space that you can draw shapes into. It begins in the upper left hand corner of the "myDrawingSpace" div.</p>
+
+<p>Now we're ready to draw a shape. In the script area, below the last line of code we wrote, write the following:</p>
+
+<pre><code>var rectangle = paper.rect(50, 40, 30, 60);
+</code></pre>
+
+<p>This draws a rectangle in the drawing space. The first two numbers represent the x and y position of the rectangle. An x of 50 means the rectangle will be 50 pixels from the left edge of the drawing area. A y of 40 means the rectangle is positioned 40 pixels from the top of the drawing space. Try adjusting the x and y arguments and notice the effect.</p>
+
+<p>The last two numbers, 30 and 60 represent the <code>width</code> and <code>height</code> of our rectangle,30 pixels wide, 60 pixels high. Try adjusting the width and height.</p>
+
+<p>Next change the <code>fill</code> color of the rectangle and the color of the outline or <code>stroke</code>. Below the last code, but within the <code>script</code> area, add the following:</p>
+
+<pre><code>rectangle.attr("fill", "#ff0000");
+rectangle.attr("stroke", "#0000ff");
+</code></pre>
+
+<p>Now our rectangle is red with a blue outline.</p>
+
+<p>As you specify the rectangle's position and size around the drawing space, note the shape will only appear within the boundaries of the space it is created in. In this example, the space is 500 x 500 pixels. You can adjust the size of the space when you create it, or later while the program is running using the <code>setSize()</code> method.</p>
+
+<p>Here is the code we ended up with.</p>
+
+<h4>Example:</h4>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;script src="raphael.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id='myDrawingSpace'&gt;&lt;/div&gt;
+
+    &lt;script &gt;
+      var paper = Raphael("myDrawingSpace", 500, 500);
+
+      var rectangle = paper.rect(50, 40, 300, 200);
+
+      rectangle.attr("fill", "#0095cb");
+      rectangle.attr("stroke", "#f95b00");
+    &lt;/script&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4>Extra:</h4>
+
+<p>Raphael also makes other shapes easily, check out these other elements:</p>
+
+<pre><code>&lt;script&gt;
+    var paper = Raphael("myDrawingSpace", 500, 500);
+
+    var c = paper.circle(100, 100, 70).attr({
+      fill:"#BE007F"
+    });
+
+    var e = paper.ellipse(300,100,60,20).attr({
+      fill:"#BE007F"
+    });  
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<script type="text/javascript">
+  var rectangles = new Rectangles();
+</script>
+
+      </article>
+    </section>
+  </body>
+</html>

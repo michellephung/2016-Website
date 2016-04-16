@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Logic Gates</title>
+		<link rel="stylesheet" href="../style/css/allwidgets.css"> <!-- widget specific styles [required] -->
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script> 
+		<script type="text/javascript" src="../js/raphael.js"></script>
+		<script type="text/javascript" src="../js/2logicgates.js"></script> <!-- required to load this last to avoid conflicts -->
+		
+	</head>
+	<body class="allLogicGates " >
+		<div class="row">
+			<div class="gate_label">plus</div>
+			<div id="plus" class="onegate "></div>
+			<div class="explaination makesmaller">Addition is not a gate, but an operation. Very similarily, gates act as operators betweens it's inputs. It is the basis of math, and a computer can be thought of as a very complex adder. On the right, the table will highlight the line containing the inputs (as you click on them), and resulting output; this type of chart is called a truth table.</div>
+			<div id="plus_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="gate_label">and</div>
+			<div id="and_gate" class="onegate "></div>
+			<div class="explaination">The AND gate outputs a true result only if all of the inputs are true. Otherwise, the result is false.</div>
+			<div id="and_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="gate_label">or</div>
+			<div id="or_gate" class="onegate"></div>
+			<div class="explaination">The OR gate outputs a true signal in cases where eithere one of the inputs are true. It's output is only false when both inputs are false.</div>
+			<div id="or_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="gate_label">not</div>
+			<div id="not_gate" class="onegate"></div>
+			<div class="explaination">The NOT gate outputs the opposite of the input. </div>
+			<div id="not_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputNOT">input x</div>
+				<div class="outputNOT">output x'</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="gate_label">xor</div>
+			<div id="xor_gate" class="onegate"></div>
+			<div class="explaination">The XOR gate outputs a true signal if the inputs are not the same.</div>
+			<div id="xor_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="gate_label">nand</div>
+			<div id="nand_gate" class="onegate"></div>
+			<div class="explaination">The NAND gate outputs a false result only if both of the inputs are true. Otherwise, the result is true.</div>
+			
+			<div id="nand_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="gate_label">nor</div>
+			<div id="nor_gate" class="onegate"></div>
+			<div class="explaination">The NOR gate outputs a true signal in cases when both inputs are false. Otherwise, the result is false.</div>
+			<div id="nor_tt" class=" tt "></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="gate_label">xnor</div>
+			<div id="nxor_gate" class="onegate"></div>
+			<div class="explaination">The XNOR gate outputs a true signal if both inputs are the same.</div>
+			<div id="nxor_tt" class=" tt"></div>
+			<div class="labels">
+				<div class="inputx">input x</div>
+				<div class="inputy">input y</div>
+				<div class="outputz">output z</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/exampleView.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Drag to move and resize an SVG element</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <ul class="nav move-resize-svg" role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+      <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Drag to move and resize an SVG element</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p>Here we demonstrate the use of JavaScript and SVG to model behavior of an operating system window.</p>
+</div>
+<div class='inputs'>
+  <form class="formSection">
+    <fieldset>
+      <label>Resize</label>
+      <p>Drag lower-right corner of the blue box</p>
+    </fieldset>
+    
+    <fieldset>
+      <label>Reposition</label>
+      <p>Drag the center of the blue box</p>
+    </fieldset>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame"> 
+    <div id="draggableArea"></div>
+  </div>
+
+
+<script type='text/javascript'>
+  var view = new MoveAndDrag();
+</script>
+      </article>
+    </section>
+  </body>
+</html>

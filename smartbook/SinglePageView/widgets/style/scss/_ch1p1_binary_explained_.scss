@@ -1,0 +1,286 @@
+.binaryexplained-widget {
+
+  $buttonWidth : 70px;
+  $buttonHeight: 70px;
+  $equalWidth: 50px;
+  font-size:19px;
+  text-align: center;
+  overflow: hidden;
+
+  
+  #ralph{
+    width: 600px; //make sure this width matches the js widt
+    height: 300px;
+    display: inline-block;
+    padding-top:40px;
+  }
+
+
+  .enclosure{
+    border: 1px solid orange;
+    width: 480px;
+    padding-top:30px;
+    padding-left: 10px;
+
+    div{
+       display:inline-block;
+
+
+    }
+
+    .answer{
+      position:absolute;
+      font-size:55px;
+      top:50px;
+    }
+    .bit{
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 4px;
+      width: $buttonWidth;
+      height: $buttonHeight; 
+      background-color:#fff; 
+
+    }
+
+    .top_click{
+      height:50%;
+      width: 100%;
+      background-color: #808080 ;
+      position:relative;
+      left:0;
+      top: -$buttonHeight+8;
+      opacity: 0.2;
+    }
+
+    .bot_click{
+      height:50%;
+      width: 100%;
+      top: -$buttonHeight+2;
+      
+      position:relative;
+      left:0;
+      opacity: 0.2;
+    }
+
+    .number{
+    width: 100% ;
+    height: 65%;
+    margin-left: auto ;
+    margin-right: auto ;
+    text-align: center;
+    padding-top:23%;
+    font-size: 55px;
+    }
+  }
+
+  sup{
+    vertical-align: super;
+    font-size:smaller;
+  }
+
+  .positionEquation{
+    display: block;
+    margin-top: 60px;
+    &.two2{
+      margin-left:$buttonWidth+7;
+    }
+    &.two1{
+      margin-left:($buttonWidth+5)*2+8;
+    }
+    &.two0{
+      margin-left:($buttonWidth+5)*3+9;
+    }
+
+  }
+
+  .arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 2px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-bottom: 5px solid black;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  
+  border-top: 7px solid black;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid green;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent; 
+  
+  border-right:7px solid $blue; 
+}
+
+.arrowDec{
+  position:absolute;
+  top:55px;
+  left:434px;
+}
+
+.arrow{
+  margin-left:40px;
+  margin-top: -35px;
+}
+
+.line23{
+  background-color:black;
+  height: 65px;
+  width:2px; 
+  position:absolute;
+  top: 102px;
+  left: 46px;
+}
+
+.line22{
+  background-color:black;
+  height: 130px;
+  width:2px; 
+  position:absolute;
+  top: 102px;
+  left: 123px;
+}
+
+.line21{
+  background-color:black;
+  height: 200px;
+  width:2px; 
+  position:absolute;
+  top: 102px;
+  left: 205px;
+}
+
+.line20{
+  background-color:black;
+  height: 260px;
+  width:2px; 
+  position:absolute;
+  top: 102px;
+  left: 281px;
+}
+
+#decimalAnswer{
+  width:75px;
+  text-align:center;
+  float: right;
+}
+  
+
+.addall{
+  position:absolute;
+  top: 140px;
+  left: 312px;
+  width:200px;
+  div{
+    display:inline-block;
+  }
+  color:$blue;
+  text-align:center;
+
+  #addendSum{
+      width:25px;
+      margin-left:-10px;
+  }
+}
+
+.addition_arrows{
+  
+  position:absolute;
+  background-color:$blue;
+
+  &.line23H{
+    height: 2px;
+    width:228px;
+    top: 185px;
+    left: 97px;
+  }
+
+  &.line23V{
+    height: 22px;
+    width:2px;
+    top: 165px;
+    left: 325px;
+  }
+  
+  &.line22H{
+    height: 2px;
+    width:195px;
+    top: 252px;
+    left: 174px;
+  }
+  &.line22V{
+    height: 87px;
+    width:2px;
+    top: 167px;
+    left: 367px;
+  }
+
+  &.line21H{
+    height: 2px;
+    width:156px;
+    top: 318px;
+    left: 255px;
+  }
+  &.line21V{
+    height: 153px;
+    width:2px;
+    top: 167px;
+    left: 409px;
+  }
+  &.line20H{
+    height: 2px;
+    width:130px;
+    top: 383px;
+    left: 324px;
+  }
+  &.line20V{
+    height: 217px;
+    width:2px;
+    top: 167px;
+    left: 452px;
+  }
+
+
+   &.lineDecimalH{
+    height: 2px;
+    width:59px;
+    top: 60px;
+    left: 435px;
+  }
+  &.lineDecimalV{
+    height: 85px;
+    width:2px;
+    top: 60px;
+    left: 492px;
+  }
+}
+  .binaryLabel{
+    position:absolute;
+    top:0px;
+    left: 10px;
+
+  }
+  .decimalLabel{
+    position:absolute;
+    top:0px;
+    left: 360px;
+  }
+
+}

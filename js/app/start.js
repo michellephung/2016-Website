@@ -1,8 +1,10 @@
 define([
   'jquery',
   'swapAllSVG',
-  '../vendor/jquery.fullPage'
-], function($, Swap, FullPage) {
+  '../vendor/jquery.fullPage',
+  'work',
+  'projects'
+], function($, Swap, FullPage, Work, Projects) {
 
   $(document).ready(function() {
       $('#fullpage').fullpage({
@@ -36,6 +38,14 @@ define([
           if (anchorLink !== anchor) {
             $.fn.fullpage.moveTo(anchor);
           }
+
+          if (anchorLink === 'work') {
+            Work.start();
+          }
+
+          if (anchorLink === 'projects') {
+            Projects.start();
+          }
         }
     });
   });
@@ -56,7 +66,7 @@ define([
     $('.heart').removeClass('moveup');
   }
 
-  function getAnchorName() {
+  function getAnchorName () {
     var url = document.location;
     return url.hash.split("#")[1];
   }

@@ -176,6 +176,15 @@ html, body {
     font-size: 2.5vw;
     max-height: 45vh;
     overflow: hidden;
+
+    & div:hover {
+      a {
+        color: #a38938;
+      }
+      .subtitle {
+        color: black;
+      }  
+    }
     
     @media screen and (max-width: 860px) {
       font-size: 20px;
@@ -187,25 +196,47 @@ html, body {
   a {
     text-decoration: none;
     color: black;
-    display: block;
-
-    &:hover {
-      color: #a38938;
-    }
+    display: inline;
   }
 
   .love {
     color: #a38938;
   }
+
+  .subtitle {
+    font-size: 1.3vw;
+    margin-left: 20px;
+
+    color: rgba(163, 137, 56, 0);
+    -webkit-transition: color 1s; /* Safari */
+    transition: color 1s;
+
+    &:hover {
+      color: rgba(163, 137, 56, 0.61);
+    }
+
+    @media screen and (max-width: 1200px) {
+      font-size: 16px;
+    }
+
+    &.fadein {
+      color: rgba(163, 137, 56, 0.61);
+    }
+
+    &.fadeout {
+      color: rgba(163, 137, 56, 0);
+    }
+  }
 }
 
 #projects-div {
-  @media screen and (max-width: 860px) {
+  @media screen and (max-width: 730px) {
     div {
       margin-bottom: 10px;
     }
   }
 }
+
 
 #contact-div {
   .gray {

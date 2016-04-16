@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/seesawCalc.js"></script>
+    <script type="text/javascript" src="javascripts/seesawView.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Seesaw diet visualizer</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav seesaw" role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+      <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Seesaw diet visualizer</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p class="col1">This visualization shows how much eating and exercising daily will affect your weight at a projected time in the future.</p>
+  <p class="col1"> You can move the blue ball (side to side) and drag the food/exercise arrows (up and down) on the diagram.
+
+  </p>
+</div>
+
+<div class="inputs"> 
+   <form>
+    <div class="formSection">
+      <fieldset><span class="output">About you</span></fieldset>
+    </div>
+    
+    <div class="formSection">          
+      <fieldset>
+        <label>Gender </label>
+        <select class="input" id="gender" >
+          <option>Female</option>
+          <option selected>Male</option>
+        </select>      
+      </fieldset>
+      
+      <fieldset>
+        <label>Age</label>
+        <span class='input'><span id="ageText">30</span> years</span>
+        <div id="age" class="slider" ></div>
+        
+      </fieldset>
+      
+      <fieldset>
+        <label>Height</label>
+        <span class='input'><span id="heightText">5'5"</span> </span>
+        <div id="height" class="slider" ></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Weight</label>
+        <span class='input'><span id="weightText" >150</span> lbs.</span>
+        <div id="weight" class="slider" ></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Activity Level</label> 
+        <select id="activityLevel" class="input">
+          <option>Extremely Active</option>
+          <option>Very Active</option>
+          <option>Moderately Active</option>
+          <option>Lightly Active</option>
+          <option>Sedentary</option>
+          <option>Coma</option>
+        </select> 
+      </fieldset>
+
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame" id="seesawCanvas"></div>
+  <h2>How to use this:</h2>
+
+<p>On the left, in the 'About you' section of this page, you can set the sliders and drop-down menus according to your personal information. On the right, the picture of the seesaw is interactive (you can play around by dragging on the blue indicators or the blue goal ball).</p>
+
+<p>Initially, the food indicator (pictured with a hamburger) shows how many calories you can eat without exercising to stay at the same current weight. This number is the minimum number of calories you need to stay healthy each day. It is equal to (BMR x Activity Factor), as this number is a good basis for a healthy amount of calories consumed daily, it is fixed as the minimum amount of calories consumed in this model.</p>
+
+<p>The exercise indicator (below the food indicator) shows zero calories to start with. The goal ball on the right shows your current weight, and the seesaw is level.</p>
+
+<p>If you drag up or down on the exercise indicator, you can see how much you could potentially weigh, within the goal ball, assuming you kept exercising off that many calories each day.</p>
+
+<p>You can also drag  the food indicator up and down, adding or subtracting calories to or from your daily diet. As you adjust the food indicator (calories in), and the exercise indicator (calories out), you can see how your weight will change in the goal ball.</p>
+
+<p>The goal ball shows how much you will weigh at a point in time in the future. Below the goal ball is a projected calendar, if you drag the goal ball right or left, you will see the affect of time on your weight, according to the calories in and out that you've set.</p>
+
+<p>Any time one of the choices on the left (under the 'About You' section) changes, the seesaw resets itself, except for the goal date.</p>
+
+<script type="text/javascript">
+      var calc = new SeesawView();
+</script>
+      </article>
+    </section>
+  </body>
+</html>

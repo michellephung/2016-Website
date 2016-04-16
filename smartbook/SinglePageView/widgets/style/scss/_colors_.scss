@@ -1,0 +1,36 @@
+$red:#FF0000;
+$orange : #FFA347;
+$yellow:#FF0;
+$green:#0f0;
+$blue: #00adef;
+$purple:#cc33ff;
+$gray: #E8E8E8 ;
+$black: #000;
+$white: #FFF;
+
+html,body{
+ // height: 100%;
+ // width:100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// ## Responds to any specified max-width value in px.
+@mixin respond-max-width($max-width) {
+	@media only screen and (max-width: #{$max-width}) {
+		@content;
+	}
+}
+
+// ## Responds to any specified min-width value in px.
+@mixin respond-min-width($min-width) {
+	@media only screen and (min-width: #{$min-width}) {
+		@content;
+	}
+}
+$ipadP: 724px; //748
+$ipadL: 970px; //1024

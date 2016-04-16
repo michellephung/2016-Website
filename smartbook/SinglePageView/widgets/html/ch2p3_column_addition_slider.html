@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style/css/allwidgets.css"> 
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script> 
+    <script type="text/javascript" src="../js/ch2p3_addslider_main.js"></script> 
+</head>
+<body>
+     <div class="slider-widget">
+        <div class="navigation">  <div>Step </div>
+           
+            <span class="nav-01">1</span>
+            <span class="nav-02">2</span>
+            <span class="nav-03">3</span>
+            <span class="nav-04">4</span>
+            <span class="nav-05">5</span>
+            <span class="nav-06">6</span>
+            <span class="nav-07">7</span>
+            <div class="controls">
+                <div id='back' > 
+                    <div id="prev_circle" ><span id="back_txt" class="circleNumber"></span></div>
+                </div>  
+               
+                <div id="forward" >
+                    <div id="next_circle" class="circle" ><span id="forward_txt" class="circleNumber"></span></div>
+                </div>
+            </div>
+        </div>
+
+        
+
+         <div id="step01" class="addShell  s0" >
+            <div class="current" >Step <span class="circleNumber ex">1</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow"></div>
+                <div class="addendTop" >165</div>
+                <div class="addentBot" >+237</div>
+                <div class="sumLine" ></div>
+                <div class="sum" ></div>
+            </div>
+            <!--div class="arrow arrow1" >⟵</div-->
+            <p class="text">Each digit lines up into columns.</p>
+        </div>
+        <div id="step02" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">2</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" ></div>
+                <div class="addendTop" >16<span class="blue">5</span></div>
+                <div class="addentBot">+23<span class="blue">7</span></div>
+                <div class="sumLine" ></div>
+                <div class="sum" ></div>
+            </div>
+            <!--div class="arrow arrow2" >⟵</div-->
+            <p class="text">We start with the right most column, where 5+7=12.</p>
+        </div>
+        <div id="step03" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">3</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" ><span class="blue">1&#160;</span></div>
+                <div class="addendTop" >165</div>
+                <div class="addentBot" >+237</div>
+                <div class="sumLine" ></div>
+                <div class="sum blue" >2</div>
+            </div>
+            <!--div class="arrow arrow2" >⟵</div-->
+            <p class="text">Since 12 has more than
+one digit, the 1 in the tens place
+is "carried over" to the next column.</p>
+        </div>
+        <div id="step04" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">4</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" ><span class="blue">1</span>&#160;</div>
+                <div class="addendTop" >1<span class="blue">6</span>5</div>
+                <div class="addentBot" >+2<span class="blue">3</span>7</div>
+                <div class="sumLine" ></div>
+                <div class="sum" >2</div>
+            </div>
+            <!--div class="arrow arrow1" >⟵</div-->
+            <p class="text">The addition continues left. Since there is a carry over from the last column, we have to add it to this column's sum. </p>
+        </div>
+        <div id="step05" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">5</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" ><span class="blue">1</span>1&#160;</div>
+                <div class="addendTop" >165</div>
+                <div class="addentBot" >+237</div>
+                <div class="sumLine" ></div>
+                <div class="sum" ><span class="blue">0</span>2</div>
+            </div>
+            <!--div class="arrow arrow1" >⟵</div-->
+            <p class="text">The sum of 1+6+3 is 10. Since each column only has one digit each, it is necessary to carry over again.</p>
+        </div>
+        <div id="step06" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">6</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" ><span class="blue">1</span>1&#160;</div>
+                <div class="addendTop" ><span class="blue">1</span>65</div>
+                <div class="addentBot" >+<span class="blue">2</span>37</div>
+                <div class="sumLine" ></div>
+                <div class="sum" >02</div>
+            </div>
+            <!--div class="arrow arrow1" >⟵</div-->
+            <p class="text"></p>
+        </div>
+        <div id="step07" class="addShell " >
+            <div class="current" >Step <span class="circleNumber ex">7</span></div>
+            <div  class="additionEquation">
+                <div class="carryRow" >11&#160;</div>
+                <div class="addendTop" >165</div>
+                <div class="addentBot" >+237</div>
+                <div class="sumLine" ></div>
+                <div class="sum" ><span class="blue">4</span>02</div>
+            </div>
+            <!--div class="arrow arrow1" >⟵</div-->
+            <p class="text">The sum final sum.</p>
+        </div>
+        
+        <div id="maxNumber" data-max_number='7'></div>
+</body>
+</html>

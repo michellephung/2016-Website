@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	
+  	<script type="text/javascript" src="javascripts/areaCalculator.js"></script>
+		<script type="text/javascript" src="javascripts/sliderView.js"></script>
+		
+  	
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+     
+    <title>Fixed area visualizer: Sliders</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav area-calc-slider" role="navigation">
+      <li><a id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a id="rectangle" href="rectangle.html">Drawing</a></li>
+      <li><a id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+	  <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Fixed area visualizer: Sliders</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p class='col1'>The values x, y, and area exist in relationship. Manipulating one value impacts the others.</p>
+  <p class='col2'>Alter each value by entering a number into a text field, or by dragging a slider.</p>
+</div>
+
+<div class="inputs">
+  <form>
+    <div class="formSection">
+      <fieldset>
+        <label>Relationship</label>
+        <span class="output">x * y = area</span>
+      </fieldset>    
+    </div>
+    
+    <div class="formSection">
+      <fieldset>
+        <label>x</label>
+        <input class="input" id="xBox" type="text" value="55"/>
+      </fieldset>
+      
+      <fieldset>
+        <label>y</label>
+        <input class="input" id="yBox" type="text" value="54"/>
+      </fieldset>
+      
+      <fieldset>
+        <label>area</label>
+        <input class="input" id="areaInput" type="text" value="54"/>
+        <div id="areaSlider" class='slider' style="margin-left: 0;"></div>
+      </fieldset>
+    </div>
+  </form>
+</div>
+
+
+<div class="main">
+  <div id="area-calc-fixed-frame" class="canvasFrame"> 
+    <div class="boxCanvas">
+      <div id="areaVisualization"></div>
+    </div>
+        
+    <div id="ySlider"></div>
+    
+    <div id="xSlider"></div>
+    
+  </div>
+
+  <p>This shape appears to move with the sliders and respond to changes in the text boxes. What is actually happening, is that the page recalculates x and y anytime a textbox or slider changes, then redraws the rectangle. For example, as the x slider moves, it increments (or decrements) the x variable by one, and at each step the value for y is recalculated based on the specified fixed area, and the rectangle is redrawn.</p>
+
+<p>In order to achieve this, we must connect the textboxes and sliders to the SVG rectangle using JavaScript. Using some jQuery functions will make using JavaScript easier.</p>
+
+<h2>Text box</h2>
+
+<p>First add a text box to the HTML markup,</p>
+
+<pre><code>&lt;form&gt;
+  &lt;input id="xBox" type="text" value="55"/&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>so that a text box appears on your page. Note the 'id' name, because we will need to have access to this specific box. In your script, create a jQuery object from the textbox id,</p>
+
+<pre><code>var xBox = $('#xBox');
+</code></pre>
+
+<p>and create a 'listener'. A 'listener' is a function that performs an action each time the text box changes, also called an 'event handler'. It 'listens' for any changes in the textbox it is assigned to. For example, a listener could look like:</p>
+
+<pre><code>xBox.change(function(){
+  paper.clear();
+  paper.rect(50, 40, this.value , 30)
+});
+</code></pre>
+
+<p>This event handler, when called, does two things, it first clears the canvas, then it redraws the rectangle, using the number you entered into the text box as the width of the newly drawn box. The value 'this.value' is the number you entered into the textbox on the page. If you want the width and height to change according to a fixed area, you will first need to declare those variables, calculate them, and then pass them as the parameters when you redraw the box.</p>
+
+<p>The function <code>.change()</code> is a jQuery event handler, so you will also need to include the jQuery library in your page. An easy way to do this is to put:</p>
+
+<pre><code>&lt;script type="text/javascript" 
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p>in the <code>&lt;head&gt;</code> section. It's easy because it requires no downloading and no maintenance on your part. Alternatively,you can also download the jQuery.js file and include it in your HTML as an external JavaScript file as well.</p>
+
+<h2>Slider</h2>
+
+<p>The slider is very similar to the textbox, in how it functions with the SVG box. First add a slider to the page:</p>
+
+<pre><code>&lt;form&gt;
+  &lt;input id="xBox" type="text"/&gt;
+  &lt;input id="ySlider"type="range"/&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>Then between the <code>&lt;script&gt;...&lt;/script&gt;</code> tags, you declare the slider as a jQuery object again:</p>
+
+<pre><code>var ySlider =$('#ySlider');
+</code></pre>
+
+<p>and add an event listener to control the height of the rectangle after it has been cleared:</p>
+
+<pre><code>ySlider.change(function(){
+  paper.clear();
+  paper.rect(50, 40, 30,this.value)
+});
+</code></pre>
+
+<h2>Upside down box</h2>
+
+<p>If you have followed the example, you may have noticed that box expands and shrinks from the upper left corner of the <code>&lt;div&gt;</code>. If you want the box to expand and shrink more conventionally (from the bottom left corner), a little math is required.</p>
+
+<p>To get the box to grow from the bottom up, declare a variable z and take the height of where you want it to start, and subtract the value of y from it, and pass that in as a parameter for redrawing the box.</p>
+
+<p>For example:</p>
+
+<pre><code>ySlider.change(function(){
+  var z=400-this.value;
+  paper.clear();
+  paper.(50,z,30,this.value);
+});
+</code></pre>
+
+<h2>Code</h2>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript" src="Raphael.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" 
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"&gt;
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div id="myShape"&gt;&lt;/div&gt; 
+  &lt;form&gt;
+    &lt;input id="xBox" type="text"/&gt;
+    &lt;input id="ySlider"type="range"/&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+
+
+&lt;script  type="text/javascript"&gt;
+
+  var paper = Raphael("myShape",500, 500);
+
+  var rectangle = paper.rect(50, 340, 30, 60);
+  rectangle.attr("stroke", "#000");
+
+  var xBox = $('#xBox');
+    xBox.change(function(){
+    paper.clear();
+    paper.rect(50, 40, this.value,30)
+  });
+
+  var ySlider =$('#ySlider');
+  ySlider.change(function(){
+    var z=400-this.value;         
+      &lt;!--400 is where the box to starts growing up from--&gt;
+    paper.clear();
+    paper.rect(50, z, 30,this.value)
+
+  })
+
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+
+
+<script type='text/javascript'>
+  	var calc = new AreaCalculator();
+	var view = new AreaCalculatorSliderView(calc);
+</script>
+      </article>
+    </section>
+  </body>
+</html>

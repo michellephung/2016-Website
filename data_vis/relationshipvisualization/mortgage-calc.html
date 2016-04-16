@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/mortgageCalc.js"></script>
+    <link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Mortgage visualizer</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav mortgage-calc" role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+      <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    
+    <section role="main">
+      <article>
+        <header>
+          <h1>Mortgage visualizer</h1>
+          
+        </header>
+        
+<div class='intro'>
+  <p class='col1'>Set the value of your home, down payment, and interest rate. The visualizer will show your monthly payment and the total cost of your loan. Notice the relationship between your loan amount and the total cost of the loan after interest.</p>
+  <p class='col2'></p>
+</div>
+
+<div class="inputs"> 
+
+  <form>
+    <div class='formSection'>
+      <fieldset>
+        <label>Purchase price</label>
+        <span class='input'>$<input  id="priceBox" type="text" value="700000" /></span>
+        <div class="slider" id="priceSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Down payment</label>
+        <span class='input'>$<input  id="downPaymentBox" type="text"  ></span>
+        <div class="slider" id="downPaymentSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Interest rate</label>
+        <span class='input'><input  id="interestBox" type="text" value="5" />%</span>
+        <div class="slider" id="interestSlider"></div>
+      </fieldset>
+
+      <fieldset>
+        <label>Term</label>
+        <span class='input'><input  id="termBox" type="text" value="30" />years</span>
+        <div class="slider" id="termSlider"></div>
+      </fieldset>
+      
+      <fieldset>
+        <label>Monthly payment</label>
+        <p class="output" id="pay"></p>
+        <label>Total paid</label>
+        <p class="output" id="totalPaid"></p>
+      </fieldset>
+    
+    </div>
+    
+    <div class='formSection'>          
+      <fieldset>
+        <label>Extra payment</label>
+        <span class='input'>$<input  id="extraPay" type="text" value="100">/ month</span>
+      </fieldset>
+      
+      <fieldset>
+        <label>Monthly fixed + extra payment</label>
+        <p class="output">$<span class="extraMonthyPayment"></span></p>
+        <label>Saved over the course of the loan</label>
+        <p class="output">$<span class="extraTotalSavings"></span></p>
+        <label>Paid off after</label>
+        <p class="output"><span class="extraFinishedIn"></span> years</p>
+      </fieldset>
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame">
+    <div id="pie" class="canvas"></div>
+    <div id="fixedYearlyPaymentVisual" class="canvas"></div>        
+  </div>
+  
+  <div class="col1">
+    <p>The pie chart on the left shows the ratio of loan amount to interest paid if you pay your mortgage according to schedule. Over the life of the loan, you will pay the original <span id="piePrinciple">$<span id="pieAmountP"></span> principle</span>, plus an additional <span id="pieInterest">$<span id="pieAmountI"></span> in interest.</span></p>
+    <p>The chart on the right shows the advantage of paying extra each month. If you pay $<span class="extraMonthyPayment">100</span> each month, you'll save $<span class="extraTotalSavings"></span> and pay back your loan in <span class="extraFinishedIn"></span> years.</p>
+  </div>
+  
+  <div class="col2">
+    <p>The bar graph shows the composition of your payments in each year of the loan. In the beginning you pay much more interest than principal. As the term of the loan goes on the ratio inverts.</p>
+  </div>
+<script type="text/javascript">
+  var calc = new MortgageCalculator();    
+</script>
+      </article>
+    </section>
+  </body>
+</html>

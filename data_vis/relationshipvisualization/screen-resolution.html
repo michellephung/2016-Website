@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    
+  	<script type="text/javascript" src="javascripts/vendor/jQuery.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/jquery-ui-1.8.13.custom.min.js"></script>
+  	<script type="text/javascript" src="javascripts/vendor/Raphael.js"></script>
+    <script type="text/javascript" src="javascripts/vendor/g.raphael.js" charset="utf-8" ></script>
+    <script type="text/javascript" src="javascripts/vendor/g.pie.js" charset="utf-8" ></script>
+  	<script type="text/javascript" src="javascripts/screenResolutionCalc.js"></script>
+    <script type="text/javascript" src="javascripts/screenResolutionView.js"></script>
+  	<link type="text/css" href="stylesheets/jquery-ui-1.8.13.custom.css" rel="Stylesheet">    
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    
+    <title>Screen Resolution Calculator</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <ul class="nav screen-resolution" role="navigation">
+      <li><a  id="homeLink" href="index.html" >Relationship visualizations</a></li>
+      <li><a  id="area-calc-slider" href="area-calc-slider.html">Area visualizer | Sliders</a></li>
+      <li><a  id="area-calc-direct" href="area-calc-direct.html">Area visualizer | Direct</a></li>
+      <li><a  id="mortgage-calc" href="mortgage-calc.html">Mortgage visualizer</a></li>
+      <li><a  id="spacer" href="" ></a></li><!--this is a spacer-->
+      <li><a  id="move-resize-svg" href="move-resize-svg.html">Drag/Resize SVG</a></li>
+      <li><a  id="seesaw" href="seesaw.html">Seesaw</a></li>
+      <li><a id="screen-resolution" href="screen-resolution.html">Screen Resolution</a><li>
+    </ul>
+    <section role="main">
+      <article>
+        <header>
+          <h1>Screen Resolution Calculator</h1>
+          
+        </header>
+        
+<div class="intro">
+  <p class="col1">This calculator determines the physical dimensions of a screen given the diagonal length and pixel resolution.</p>
+</div>
+
+<div class="inputs"> 
+   <form>
+    <div class="formSection">
+      <fieldset>
+        <span class="output">Screen Specs</span>
+        </fieldset>
+    </div>
+    
+    <div class="formSection">          
+      <fieldset class="firstDim" >
+        <label>Dimensions</label>
+        <div class="horizontal">
+          <span class='input'><input type='text' id="pxWidth0"  /></span>
+          <div class="labeltxt">Horizontal (pixels)</div> 
+        </div>
+        <span id="by">x</span>
+        <div class= "vertical"> 
+          <span class='input'><input type='text' id="pxHeight0" /></span>
+          <div class="labeltxt">Vertical (pixels)</div>
+        </div>
+        <div class="diagonal">
+          <span class='input'><input type='text' id="diagonalInput0"/></span>
+          <div class="labeltxt">Diagonal (inches)</div>
+        </div>
+        <div class="dimInfo" id="info0">
+          <span id="DPI0"></span>
+          <span class="aspectRatio" id="as0"></span>
+          <span class='hideShow' id='hideShow0'>- hide<span>
+        </div>
+      </fieldset>
+      
+      <div id="addAnother1" ></div>
+      <div id="addAnother2" ></div>
+      <div id="addAnother3" ></div>
+
+
+      <fieldset id="addCustom">
+        <label >+ Add another screen </label>
+      </fieldset>
+      
+      
+      
+      
+      <fieldset>
+        <label id="addProduct">+ Add an existing product screen</label>
+        <div id="products"></div>
+      </fieldset>
+
+
+    </div>
+  </form>
+</div>
+
+<div class="main">
+  <div class="canvasFrame" id="resolutionCanvas"></div>
+  <p>This assumes square pixels.</p>
+
+<p>The box displayed is in pixels, the inches measurement reflects the diagonal measurement you provided on the left.</p>
+  
+</div>
+
+<script type="text/javascript">
+     var calc = new screenResolutionCalculator(15,960,640);
+     var view = new screenResolutionView(calc);
+</script>
+      </article>
+    </section>
+  </body>
+</html>
