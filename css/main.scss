@@ -176,14 +176,21 @@ html, body {
     font-size: 2.5vw;
     max-height: 45vh;
     overflow: hidden;
-
-    & div:hover {
+    
+    & div {
       a {
-        color: #a38938;
+        -webkit-transition: color 0.5s; /* Safari */
+        transition: color 0.5s;
       }
-      .subtitle {
-        color: black;
-      }  
+
+      &:hover {
+        a {
+          color: #a38938;
+        }
+        .subtitle {
+          color: black;
+        } 
+      }
     }
     
     @media screen and (max-width: 860px) {

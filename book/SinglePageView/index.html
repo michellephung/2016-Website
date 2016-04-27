@@ -1,0 +1,946 @@
+<html>
+	<head>
+		<!--
+		Single Page View
+		HI. WELCOME:
+	
+		THIS HTML DOCUMENT IS DEPENDENT ON SEVERAL EXTERNAL JAVASCRIPT LIBRARIES:
+			JQUERY
+			RAPHAEL
+			GOOGLE FONT API
+
+		SIMULATION CHROME IS CSS
+
+		PAGE NAVIGATION IS BY JQUERY ONE PAGE SCROLL
+
+		CONTENT AND INTERACTIONS ARE EMBEDDED IFRAME FILES OR HTML USING A COMBINATION OF 
+		RAPHAELJS (SVG) AND CSS
+
+		2014
+
+		MICHELLE PHUNG
+
+		-->
+		<title>Future Of the Book: Beginning Electrical Digital Design</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<!--external libraries-->
+		<script type="text/javascript" src="../../jquery-1.11.0.min.js">		</script>
+		<script type="text/javascript" src="js/Raphael.js">					</script>
+		<!--project specific created libraries-->	
+		<script type="text/javascript" src="widgets/js/2logicgates.js"></script> 
+		<script type="text/javascript" src="js/final_combined.js"></script>
+		<script type="text/javascript" src="js/ch1p1_binary_explained.js"></script>
+		
+		
+		<link 	rel="stylesheet" 
+				href="css/style.css" />
+	
+	</head>
+
+	<body>
+		<div id="introduction">
+			<h1>Future Book: 
+			Interactive Simulation
+			</h1>
+			<div id="chromeinstructions">
+				Important : All
+				<span class="widget">purple</span> elements are clickable. 
+			</div>
+		</div>
+		<div id="bookcontent">
+			<div class="main">
+				<section id="page1" class="page1" >
+						<h1 id="title">Fundamentals of Digital Design</h1>
+						<div id="synopsis">A story of how mathematics, logic, and physical transistors combine to create computers.</div>
+						
+						<div id="byline">by Michelle Phung </div>
+						
+				</section>
+				<section id="page2" class="page2" >
+						<div class="left">
+							<div class = "chapterHeading">A Note from the Author</div>
+							<div>The unique format of this ‘book’ aims to close the gap between the practical and theoretical as it applies to introductory level electrical engineering.</br></br>Each new concept presented is coupled with an interactive example and the reader encouraged to play, twiddle, toggle, and change the variables. </br></br>Using the interactions as a catalysis to learning the material, abstract concepts come alive on the page. </br></br>It is my hope that you enjoy reading and playing along with this book as much as I have enjoyed creating it.</div>
+						</div>
+						
+				</section>
+				<section id="page3" class="page3" >
+						<div class='left'>
+							<div class = "chapterHeading">1 Binary Number System</div>
+							The language of computers is written in binary code. <br><br>
+
+							In the same way we use the letters ‘C’, ‘A’, and ‘R’ to represent the word ‘car’, and the word ‘car’ to represent the concept of the automobile,
+							computers use ‘0’s and ‘1’s to represent words, instructions, rules, everything.<br><br>
+							
+							The two states (state 0 and state 1) describe an entire world of software. For example:<br><br>
+							<div class="indent1">
+							if 1000011 represent the letter ‘C’,<br>
+							and 1000001 represent ‘A’, <br>
+							and 1010010 represent ‘R’, <br>
+							all information can be written in binary.<br><br>
+							</div>
+
+							Since binary is so simple (only two options ‘0’ or ‘1’), <br>
+							the chance of misinterpreting signals is low,
+							and as a result, there are less likely to be errors.
+						</div>
+						<div class="right">
+							<div class="position-notation">
+								<div class="radix_list">
+										<div class="labels">
+											<div>binary</div>
+											<div>decimal</div>
+											<div>hexadecimal</div>
+										</div>
+
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>0</div>
+												<div>1</div>
+												<div>10</div>
+												<div>11</div>
+											</div>
+											<div class="decimal">
+												<div>0</div>
+												<div>1</div>
+												<div>2</div>
+												<div>3</div>
+											</div>
+											<div class="hexadecimal">
+												<div>0</div>
+												<div>1</div>
+												<div>2</div>
+												<div>3</div>
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>100</div>
+												<div>101</div>
+												<div>110</div>
+												<div>111</div>
+											</div>
+											<div class="decimal">
+												<div>4</div>
+												<div>5</div>
+												<div>6</div>
+												<div>7</div>
+											</div>
+											<div class="hexadecimal">
+												<div>4</div>
+												<div>5</div>
+												<div>6</div>
+												<div>7</div>
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>1000</div>
+												<div>1001</div>
+												<div>1010</div>
+												<div>1011</div>
+											</div>
+											<div class="decimal">
+												<div>8</div>
+												<div>9</div>
+												<div>10</div>
+												<div>11</div>
+											</div>
+											<div class="hexadecimal">
+												<div>8</div>
+												<div>9</div>
+												<div>A</div>
+												<div>B</div>
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>1100</div>
+												<div>1101</div>
+												<div>1110</div>
+												<div>1111</div>
+											</div>
+											<div class="decimal">
+												<div>12</div>
+												<div>13</div>
+												<div>14</div>
+												<div>15</div>
+											</div>
+											<div class="hexadecimal">
+												<div>C</div>
+												<div>D</div>
+												<div>E</div>
+												<div>F</div>
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>10000</div>
+												<div>10001</div>
+												<div>10010</div>
+												<div>10011</div>
+											</div>
+											<div class="decimal">
+												<div>16</div>
+												<div>17</div>
+												<div>18</div>
+												<div>19</div>
+											</div>
+											<div class="hexadecimal">
+												<div>10</div>
+												<div>11</div>
+												<div>12</div>
+												<div>13</div>
+											</div>
+										</div>
+								
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>10000</div>
+												<div>10001</div>
+												<div>10010</div>
+												<div>10011</div>
+											</div>
+											<div class="decimal">
+												<div>16</div>
+												<div>17</div>
+												<div>18</div>
+												<div>19</div>
+											</div>
+											<div class="hexadecimal">
+												<div>10</div>
+												<div>11</div>
+												<div>12</div>
+												<div>13</div>
+											</div>
+										</div>
+
+										<div class="fourNumbers">
+											<div class="binary">		
+												<div>10100</div>
+												<div>10101</div>
+												<div>10110</div>
+												<div>10111</div>
+											</div>
+											<div class="decimal">
+												<div>20</div>
+												<div>21</div>
+												<div>22</div>
+												<div>23</div>
+											</div>
+											<div class="hexadecimal">
+												<div>14</div>
+												<div>15</div>
+												<div>16</div>
+												<div>17</div>
+											</div>
+										</div>
+
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>11000</div>
+												<div>11001</div>
+												<div>11010</div>
+												<div>11011</div>
+											</div>
+											<div class="decimal">
+												<div>24</div>
+												<div>25</div>
+												<div>26</div>
+												<div>27</div>
+											</div>
+											<div class="hexadecimal">
+												<div>18</div>
+												<div>19</div>
+												<div>1A</div>
+												<div>1B</div>
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>11100</div>
+												<div>11101</div>
+												<div>11110</div>
+												<div>11111</div>
+										
+											</div>
+											<div class="decimal">
+												<div>28</div>
+												<div>29</div>
+												<div>30</div>
+												<div>31</div>
+											
+											</div>
+											<div class="hexadecimal">
+												<div>1C</div>
+												<div>1D</div>
+												<div>1E</div>
+												<div>1F</div>
+											
+											</div>
+										</div>
+										<div class="fourNumbers">
+											<div class="binary">
+												<div>100000</div>
+											</div>
+											<div class="decimal">
+												<div>32</div>
+											</div>
+											<div class="hexadecimal">
+												<div>20</div>
+											</div>
+										</div>
+									</div>
+				</section>
+				<section id="page4" class="page4" >
+					<div class="absolute">
+					<div class="left">
+						<div>Let’s start with <span class="chapterHeading">how to read binary.</span><br><br>
+
+							The system that most of us are familiar with is the base 10 system (i.e., 1 2 3 4 5 6 7 8 9 0), also called decimal.<br><br>
+
+							Base 16 system has 16 symbols (0 1 2 3 4 5 6 7 8 9 A B C D E F) and is also called hexadecimal.<br><br>
+
+							There are only two numbers in the binary numbering system: ‘0’ and ‘1’. It is a base 2 system. <br><br>
+
+							A letter or a subscript is used to denote the radix:
+							<div class="indent1">
+								0x32 and 32<sub>16</sub> are in hexadecimal (base 16)<br>
+								0b110010 and 110010<sub>2</sub> are in binary (base 2)<br>
+								50 and 50<sub>10</sub> are in decimal (base 10)<br><br>
+							</div>
+
+							The numbers increase in magnitude according to their positions.
+						</div>
+					</div>
+					<div class="right">
+						<div class="binaryDecimalExample  bigFont">
+							<div class="w1_static">
+								<div><span class="w1_bin">001<sub>2</sub></span>
+									<span class="w1_eq">
+								 = </span><span class="w1_dec">1<sub>10</sub></div></span>
+								<div><span class="w1_bin">010<sub>2</sub></span> 
+									<span class="w1_eq">
+									=</span><span class="w1_dec"> 2<sub>10</sub></div></span>
+								<div><span class="w1_bin">011<sub>2</sub></span> 
+									<span class="w1_eq">
+									=</span><span class="w1_dec"> 3<sub>10</sub></div></span>
+								<div><span class="w1_bin">100<sub>2</sub></span> 
+									<span class="w1_eq">
+									=</span><span class="w1_dec"> 4<sub>10</sub></div></span>
+							</div>	
+							<div class="b2d-widget b2d " id="w1" >
+								<div class="enclosure">
+									<div class="binary"  id="w1_binary">
+										<div id="w1_text">Binary</div>
+										<div id="binary" class="number">101</div>
+										<div id="topB" class='top_click'></div>
+										<div id="botB" class='bot_click'></div>
+									</div>
+									<div class="equalSign">=</div>
+									<div class="decimal" id="w1_decimal">
+										<div id="w1_text">Decimal</div>
+										<div id="decimal" class="number">5</div>
+										<div id="topD" class='top_click'></div>
+										<div id="botD" class='bot_click'></div>
+									</div>
+								</div>
+								<span class="interactive" >
+									<span id="w1_inc" >+</span>
+									<span id="w1_dec" class="interactive">-</span>
+								</span>	
+							</div>
+						</div>
+					</div>
+					</div>
+				</section>
+				<section id="page5" class="page5" >
+					<div class="left">
+						<span class="chapterHeading">Convert Binary to Decimal</span><br>
+						Since there are only two numbers in binary, we interpret the value of the number by the position of the numbers.
+						<br><br>
+
+						Decimal is the most familar radix, thus we start by converting binary into decimal.<br><br>
+
+						First, realize that for every position left of the number,
+						the value of that number increases by 2<sup>n</sup>.<br><br>
+
+						We multiply the 0 or 1 by their position, and add the sum
+						to convert the number into decimal.<br><br>
+
+						<div class="indent1">
+							The first position is multiplied by 2<sup>0</sup>.<br>
+							The second position is multiplied by 2<sup>1</sup>.<br>
+							The third position is multiplied by 2<sup>2</sup>.<br>
+							(A fourth position would be multiplied by 2<sup>3</sup>, <br>
+							and a fifth position would be multiplied by 2<sup>4</sup>.)
+						</div>
+					</div>
+				
+					<div class="right">
+						<div> </span>
+						From each bit's position, we get the powers (0, 0, and 4), 
+						and when adding each together, the sum is the converted
+						value in decimal.</div>
+						<div class="b2d-widget b2d " id="w2" >
+							<div class="enclosure">
+								<div class="binary"  id="w2_binary">
+									<div class="w2_text">Binary</div>
+									<div id="w2_binarynumber" class="number">110</div>
+							
+								</div>
+								<div id="w2_eq" class="equalSign">=</div>
+								<div class="decimal" id="w2_decimal">
+									<div class="w2_text">Decimal</div>
+									<div id="w2_decimalnumber" class="number">6</div>
+								</div>
+								<span id="w2_inc" class="interactive">+</span>
+								<span id="w2_dec" class="interactive">-</span>
+							</div>
+							
+							
+						</div>
+						<div class="binaryexplained-widget" id="convertingb2d" >
+							<div id="binaryexplained-widget-ralph"></div>
+						</div>
+					</div>
+				</section>
+				<section id="page6" class="page6" >
+					<div class="left">
+						<div class = "chapterHeading">2 Binary Math</div>
+						<div>For handling the addition of two 1-bit numbers, the half adder works great. However, the limitation of the half-adder is that it only sums 1-bit numbers.<br><br>
+
+						For addition to be useful, the number of bits must be magnitudes larger.<br><br>
+
+						Column addition is a common method to work out addition, that is shows how carry - overs work.<br>
+						<iframe id="step-by-step-decimal-addition" src="widgets/html/ch2p3_column_addition_slider.html" frameBorder="0"></iframe>
+						<iframe id="step-by-step-binary-addition2" src="widgets/html/ch2p3_addingb.html" frameBorder="0"></iframe>
+						</div>
+					</div>
+					<div class='right'>
+						<div class="rightlabel adlabel1">decimal addition</div>
+						<iframe id="decimal-addition" src="widgets/html/ch2p3_sum.html" frameBorder="0"></iframe>
+						<div class="rightlabel adlabel2">binary addition</div>
+						<iframe id="decimal-addition" src="widgets/html/binary_sum.html" frameBorder="0"></iframe>
+					</div>
+				</section>
+				<section id="page7" class="page7" >
+					<div class="left">
+						<div class = "chapterHeading">3 Logic Gates</div>
+						<div>
+						The special nature of the binary numbering system gives way to a subdivision of algebra, called Boolean algebra (also known as Boolean Logic).<br><br>
+						Since there are only two numbers in the binary numbering system, it lends itself to other interpretations. The two numbers, ‘0’ and ‘1’ can represents states, like on and off, true and false, or HIGH and LOW signals.<br><br>
+
+						Boolean algebra has its own rules, notations, and operations. 
+						There are three basic operations, AND, OR, and NOT.	The gates pictured to the right are symbols that represent Boolean algebra operations. Similar to a plus or minus symbol, they represent an operation taking place that produces a single result.<br><br>
+
+						These gates also represent physical electrical components, which  can be used to build and control circuits, and which, in turn can be used to build 
+
+						</div>
+					</div>
+					<div class= 'right'>
+
+						<div>
+
+						complex computer systems.
+						<br><br>
+						Each of the gates have inputs on the left hand side. The AND and OR gates pictured here take 2 inputs each, and result in one output.
+
+						
+
+						There are more logic gate symbols and operations, but these are the basics.	To gain an idea of how the AND, OR, and NOT operations work,  consider ‘0’ is ‘false’ and ‘1’ is ‘true’.
+						</div>
+						<div id="and_gate_"></div>
+						<p class='gatedescription'>This is an AND gate symbol.</p>
+						<div id="ORgate"></div>
+						<p class='gatedescription'>This is an OR gate symbol.</p>
+						<div id="NOTgate"></div>
+						<p class='gatedescription notdesc'>This is an NOT gate symbol.</p>
+						
+					</div>
+				</section>
+				<section id="page8" class="page8" >
+					<div><b>Truth Tables</b> can quickly show the result of an operation on the inputs. Each operation has it’s own truth table. Logic gates can have more than two inputs but the most shown here are two. For gates with more than two inputs, a different truth table has to be made, but the rules stay the same in each case.<br><br>
+					</div>
+
+					<div>Addition (pictured below) is not a gate, but an operation. Very similarly, gates act as operators between it's inputs. It is the basis of math, and a computer can be thought of as a very complex adder. On the right, the truth table will highlight the line containing the inputs (as you <span class="interactive" >click</span> on the them), and the resulting output.</div>
+
+
+					<div class="allLogicGates">
+						<div class="row">
+							<div class="gate_label">plus</div>
+							<div id="plus_gate_0" class="onegate "></div>
+							<div id="plus_tt_0" class=" tt"></div>
+							<div class="labels">
+								<div class="inputx " id="plus_0_xlabel">input x</div>
+								<div class="inputy " id="plus_0_ylabel">input y</div>
+								<div class="outputz " id="plus_0_zlabel">output z</div>
+							</div>
+							<div id="thisisTT">This type of chart is a called a truth table. </div>
+						</div>
+
+						<div class="row" id="and_0_row">
+							<div class="gate_label">and</div>
+							<div id="and_gate_0" class="onegate "></div>
+							<div id="and_tt_0" class=" tt"></div>
+							<div class="labels">
+								<div class="inputx " id="and_0_xlabel">input x</div>
+								<div class="inputy " id="and_0_ylabel">input y</div>
+								<div class="outputz " id="and_0_zlabel">output z</div>
+							</div>
+							<div class="and_0_arrows">
+								<div><img src="images/arrow.png" alt="00">if the x input is 0 and the y input is 0, then the result is 0</div>
+								<div><img src="images/arrow.png" alt="01">if the x input is 0 and the y input is 1, then the result is 0</div>
+								<div><img src="images/arrow.png" alt="10">if the x input is 1 and the y input is 0, then the result is 0</div>
+								<div><img src="images/arrow.png" alt="11">if the x input is 1 and the y input is 1, then the result is 1</div>
+							</div>
+							<div class="explaination" id="and_0_explain">The AND gate outputs a true result only if all of the inputs are true. Otherwise, the result is false.</div>
+							
+						</div>
+					</div>		
+				</section>
+				<section id="page9" class="page9" >
+					<div>
+						<span class="chapterHeading">Each of the gates have inputs on the left hand side.</span>
+
+						The NOT gate takes one input (on the left hand side), and results in one output
+						(on the right hand side). 
+
+						<span class="highlight">Play</span> with the inputs of the logic gates by clicking on the purple variables. 
+
+						The corresponding output will change as a result of the inputs
+						and the truth table will highlight which outcome is currently being addressed.
+					</div>
+					<div class="allLogicGates">
+						<div class="row">
+							<div class="gate_label">or</div>
+							<div id="or_gate" class="onegate"></div>
+							<div class="explaination">The OR gate outputs a true signal in cases where eithere one of the inputs are true. It's output is only false when both inputs are false.</div>
+							<div id="or_tt" class="tt"></div>
+							<div class="labels">
+								<div class="inputx">input x</div>
+								<div class="inputy">input y</div>
+								<div class="outputz">output z</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="gate_label">not</div>
+							<div id="not_gate" class="onegate"></div>
+							<div class="explaination">The NOT gate outputs the opposite of the input. </div>
+							<div id="not_tt" class="tt"></div>
+							<div class="labels">
+								<div class="inputNOT">input x</div>
+								<div class="outputNOT">output x'</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="gate_label">xor</div>
+							<div id="xor_gate" class="onegate"></div>
+							<div class="explaination">The XOR gate outputs a true signal if the inputs are not the same.</div>
+							<div id="xor_tt" class=" tt"></div>
+							<div class="labels">
+								<div class="inputx">input x</div>
+								<div class="inputy">input y</div>
+								<div class="outputz">output z</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="page10" class="page10" >
+					<div class="allLogicGates">
+						<div class="row row3">
+							<div class="gate_label ">nand</div>
+							<div id="nand_gate" class="onegate"></div>
+							<div class="explaination">The NAND gate outputs a false result only if both of the inputs are true. Otherwise, the result is true.</div>
+							
+							<div id="nand_tt" class="tt"></div>
+							<div class="labels">
+								<div class="inputx">input x</div>
+								<div class="inputy">input y</div>
+								<div class="outputz">output z</div>
+							</div>
+						</div>
+							
+						<div class="row row3">
+							<div class="gate_label ">nor</div>
+							<div id="nor_gate" class="onegate"></div>
+							<div class="explaination">The NOR gate outputs a true signal in cases when both inputs are false. Otherwise, the result is false.</div>
+							<div id="nor_tt" class=" tt "></div>
+							<div class="labels">
+								<div class="inputx">input x</div>
+								<div class="inputy">input y</div>
+								<div class="outputz">output z</div>
+							</div>
+						</div>
+							
+						<div class="row row3">
+							<div class="gate_label">xnor</div>
+							<div id="nxor_gate" class="onegate"></div>
+							<div class="explaination">The XNOR gate outputs a true signal if both inputs are the same.</div>
+							<div id="nxor_tt" class=" tt"></div>
+							<div class="labels">
+								<div class="inputx">input x</div>
+								<div class="inputy">input y</div>
+								<div class="outputz">output z</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="page11" class="page11" >
+					<div>
+						<div class="overlay chip">
+								<div class = "chapterHeading">4 Integrated Circuits
+								</div>
+								<div>Inside a Chip:
+									Chips in computers are simply these logic gates, arranged in a specific way, in order produce a desired output. 
+								</div>
+								<div>Pictured in the lower right is a Texas Instrument SN74LS08 integrated circuit, 
+								which houses 4 AND gates within it.
+
+								This integrated circuit (aka 'IC chip' or a 'microchip') shown is relatively large. The ICs used in computers, calculators, and smart phones are much, much smaller.
+
+								The inside connections are pictured on the right.
+								</div>
+						</div>
+						<img id='icPhoto' src="images/icPhoto.png">
+					
+					 	<img id='interiorChipPic' src="images/InteriorChip.png">
+					 </div>
+				</section>
+				<section id="page12" class="page12" >
+					<div>
+						<div class = "chapterHeading">Inside a Chip’s Transistors:</div>
+
+						Within each logic gate in the physical world,
+								are arrays of transistors made of silicon.
+
+								Many chip makers and software 
+								giants began their technological journey in the
+								San Francisco Bay Area, using the chemical
+								element ‘silicon’. The nickname ‘Silicon Valley’ 
+								comes from this fact.
+						
+						
+						<iframe id="nptransistors" src="widgets/html/transistors.html" frameborder=0></iframe>
+
+						<DIV> Electricity flows from one point in space another, it is drawn to the destination point, like water falls to the ground. Imagine that electricy is flowing down towards the ground in these diagrams, and control the flow using the purple numbers on left side of each transistor. 
+						</DIV>
+					</div>
+				</section>
+				<section id="page13" class="page13" >
+					<div class = "chapterHeading">AND gate - Transistor Level</div>
+					<iframe id="andTransistors"  src="widgets/html/inside_and_gate.html" class="gateTransistor" frameborder=0></iframe>
+					<div class="gateTrans_label">
+						
+						<p>You can click on the purple elements<br> to change the diagrams.</p>
+					</div>
+					<div class="gateTransitor_text">
+						<p>The diagram above shows how a series of transistors (three transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an AND gate.</p>
+						<p>Each of the gates presented before (AND, OR, NOT, NOR, NAND, XOR, etc.) can be made using transistors. 
+						</p>
+						<p>Many mathematical concepts and solutions can be created through transistors, this is the basis of computers and machines: to produce a desired output by creating a correct electrical path. </p>
+					</div>
+				</section>
+				<section id="page14" class="page14" >
+					<div class = "chapterHeading">OR gate - Transistor Level</div>
+					<iframe id="orTransistors"  class="gateTransistor"src="widgets/html/or-transistor.html" frameborder=0></iframe>
+					<div class="gateTrans_label">
+						
+						<p>You can click on the purple elements<br> to change the diagrams.</p>
+					</div>
+					<div class="gateTransitor_text">
+						<p>The diagram above shows how a series of transistors (three transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an OR gate.</p>
+						
+					</div>
+				</section>
+				<section id="page15" class="page15" >
+					<div class = "chapterHeading">XOR gate - Transistor Level</div>
+					<iframe  id="xorTransistors" class="gateTransistor" src="widgets/html/xor-transistor.html" frameborder=0></iframe>
+					<div class="gateTrans_label">
+						
+						<p>You can click on the purple elements<br> to change the diagrams.</p>
+					</div>
+					<div class="gateTransitor_text">
+						<p>The diagram above shows how a series of transistors (five transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an XOR gate.</p>
+						<p>Examining the XOR gate transistors, you can see that the XOR diagram is made up of a combination of the previous AND gate pattern and the previous OR gate pattern.</p>
+					</div>
+				</section>
+				<section id="page16" class="page16" >
+					<div class="left">
+						<div class = "chapterHeading">5 Half, Full, and Carry Look Ahead Adders</div>
+						<div>
+							A basic circuit is a half-adder. It adds two (one digit) numbers.
+
+							Since there are only 2 numbers in the binary system, there are only so many combinations of addition that can occur.
+						</div>
+						<div class="shortLeft"><br>
+							The output of the half-adder circuit has 2 outputs, with the output of the AND gate acting as the carry, or "over flow", when the sum is bigger than one digit.<br><br>
+
+							This happens when x=1 and y=1, and subsequently the carry=1 and sum=0, which is read as output=10, the correct sum of 1+1=10.<br><br>
+
+							<span class="highlight">Click</span> on the purple gate labels<br> to see the truth tables, and on <br>the inputs to change the diagram.
+						</div>
+					</div>
+					<div class="right">
+							When...<br> 
+							x=0 and y=0 then 0+0=0 (the sum = 0).<br>
+							x=0 and y=1 then 0+1=1 (sum is 1).<br>
+							x=1 and y=1 then 1+0=1 (sum is 1).<br>
+							x=1 and y=1 then 1+1=10 (sum is 10)*.<br>
+
+							<div class="smaller">
+								<span id="pg16asterisk">*</span>
+								<br>In the special case where x=1 and y=1, the result needs 2 bits to accurately describe the sum. 
+								<br>
+								<br>In other cases, (0+0, 0+1, 1+0), only 1 bit is necessary to accurately describe the sum.
+							</div>
+					</div>
+					<div id="ha_label">The Half Adder</div>
+					<div><iframe id="halfadder" src="widgets/html/halfadder.html" frameborder=0></iframe></div>
+				</section>
+				<section id="page17" class="page17" >
+					<div class='left'>
+						One could imagine that <span class="chapterHeading">chaining multiple half-adders together</span> could produce our desired output for a multi-bit sum.<br>
+						<br>However, there is no input for “carrying over” when using just the half-adder.
+						<br><br>
+
+						This is where the full adder comes into play. The full-adder has an extra input called the ‘carry in’ or commonly denoted by ‘C<sub>in</sub>’.
+					</div>
+					<div class="right">
+						<div id="fa_label">The Full Adder</div>
+						<iframe id="fulladder" src="widgets/html/fulladder.html" frameborder=0></iframe>
+					</div>
+				</section>
+				<section id="page18" class="page18" >
+					<div><iframe id="fa-transistor" src="widgets/html/fulladder-transistors.html" frameborder=0></iframe></div>
+					<div>
+						<span class="chapterHeading">The Full Adder.</span> This diagram is interactive. You can click and change the purple inputs on the left hand side. You can also view the transistor overlay by clicking on the purple circles below the diagram. The two circles show three views: a transistor view (dark purple), a gate view (light purple), and a combination of both (click in the overlapping space of the two circles).
+					</div>
+				</section>
+				<section id="page19" class="page19" >
+					<iframe id="halfAdder2FullAdder" src="widgets/html/transformingAdders.html" frameborder=0></iframe>
+					<p><span class="chapterHeading">A full adder is made up of two XOR gates, two AND gates, and one OR gate.</span></p>
+					<p>The above animation shows that another way to interpret the scheme of the full adder is to imagine that it is composed of two half adders. Click 'start' to begin the animation.</p>
+				</section>
+				<section id="page20" class="page20" >
+					<div class="left">
+						<span class="chapterHeading">Why the full adder? </span>
+						The point, and the difference between the half adder and the full adder is the third input. The half adder has only two inputs.
+						<p>In column addition, there is a need for a 'carry in'.</p>
+						<img border="0" src="images/phantomrow.png" >
+						<p id="aside_phantomRow">This ‘phantom row’ is the row in which all the carry in’s get placed.</p>
+						<p>
+						When a column has a carry over (a figure 1) on top of it, 
+						the result of that row is the sum of 3 numbers:</p>
+						<p class="indent1">the original two numbers, <br>plus the additional carry over.</p>
+						<p>For n-inputs, we know there are 2<sup>n</sup> unique combinations for inputs.</p>
+						
+					</div>
+					<div class="right">
+						Let’s make some distinctions between carry in and carry out:
+							<br><br>
+						<img border="0" id="carryincarryout" src="images/carryincarryout.png" >
+
+						<p>The addition of a third input means that there are more combinations of addition.
+						</p>
+						<p>
+						A truth table for a full-adder reveals how the carry in can influence the result:</p>
+						<img border="0" id="faTT" src="images/fullAdderTT.png" >
+					</div>
+				</section>
+				<section id="page21" class="page21" >
+					<P>Let’s take a look at binary addition again, this time keeping notice of the carry ins and carry outs.
+					</P>
+					<P>
+					We begin with the right most column, and this time, we can look 
+					at how reading the truth table could help us.
+					</P>
+					<img border="0" id="explainTT1" src="images/explainTT1.png" >
+				</section>
+				<section id="page22" class="page22" >
+					<img border="0" id="explainTT2" src="images/explainTT2.png" >
+					<div class="right smallRight">
+						
+						To reiterate:
+						the  1  that was  “carried over”
+						to the next column, is added 
+						to the sum of the next  column.<br><br>
+
+						When we add up the second column, we can use the truth table, however realize that the carry out from the last computation, is now the carry in to the next addition.<br><br>
+
+						From the truth table,<br>
+						the sum bit is 1 ,(0+0+1=1)<br>
+						and the carry out bit is 0.<br><br>
+						
+						This continues left, carrying over as necessary. When the carry out bit = 0, it is usually omitted, and	understood that ‘nothing’ 
+						is added.
+					</div>	
+				</section>
+				<section id="page23" class="page23" >
+					<div class="left">
+						<span class="chapterHeading">4 bit Enumeration</span>	
+						A 4-bit adder adds two 4-bit numbers. It has four, and only four, places in each number. This means that the minimum number that one of the	addends can be is 0000. <br><br>
+						
+						The maximum an addend can be is 1111<sub>2</sub>. </br>
+						<span class="indent1">
+							(recall: 111<sub>12</sub> = 15<sub>10</sub>)
+						</span><br><br>
+						
+						Since the adder is going to sum the LSB (least significant bit) of A with the LSB (least significant bit) of B, then every corresponding bits after that, it is clarifying to name each bit.<br><br>
+
+						So when we add them together, roughly, it would look something like this:<br><br>
+						
+						<img border="0" id="carryoutCarryinColumnEquations" class="width100" src="images/carryoutCarryinColumnEquations.png" >
+														
+					</div>
+					<div class="right">	 
+						An example: A + B = ?, where A=1101<sub>2</sub> B=1001<sub>2</sub> 
+						</br></br>
+						<img border="0" id="identifyAbits" class="bit_enum indent1" src="images/identifyAbits.png" ><br>
+						Similarly for B:<br></br>
+						<img border="0" id="identifyBbits" class="bit_enum indent1" src="images/identifyBbits.png" >
+						<br>
+						Notice that the “carry-outs” are the “carry-ins” for the next column.
+					</div>
+				</section>
+				<section id="page24" class="page24" >
+					<div class="left shorterLeft">
+						<span class="chapterHeading">The full adder</span> (again):<br><br><br>
+						
+						<img border="0" id="carryoutCarryinColumnEquations2"  src="images/carryoutCarryinColumnEquations.png" ><br><br>
+						
+						Note that each of the inputs (x, y, carry<sub>in</sub>) and outputs (sum, carry<sub>out</sub>) are 1 bit signals. Paired with each equation, we would need 4 full adders to create the <br>5-bit wide sum:<br><br>
+						<div class="width300">
+							C<sub>out</sub> 
+							Sum<sub>3</sub>
+							Sum<sub>2</sub>
+							Sum<sub>1</sub>
+							Sum<sub>0</sub><br><br>
+							
+							*the final carry<sub>out</sub> represents the MSB (most significant bit) of the sum
+						</div>
+						<div id="fa_label">The Full Adder</div>
+						<iframe id="fulladder2" src="widgets/html/fulladder.html" frameborder=0></iframe>
+					</div>
+					<div class='right'>
+						It may help to realize:
+						<span class="indent1 smallerFont lineH1">Carry in<sub>1</sub>=Carry out<sub>0</sub><br>
+						</span>
+						<span class="indent2 smallerFont lineH1">Carry in<sub>2</sub>=Carry out<sub>1</sub><br>
+						</span>
+						<span class="indent2 smallerFont lineH1">Carry in<sub>3</sub>=Carry out<sub>2</sub><br>
+						</span>
+						<span class="indent2 smallerFont lineH1">Carry in<sub>4</sub>=Carry out<sub>3</sub>* 	 
+						</span><br>
+						
+					</div>
+				</section>
+				<section id="page25" class="page25">
+					<div class="left shortLeft1">
+						<span class="chapterHeading">The 4-bit Ripple Carry Adder</span>
+						Chaining multiple full adders like this will create n-bit adders.
+						This scheme is called a ripple-carry adder; the carry bit
+						“ripples” through the circuit.<br><br>
+
+						Electricity traveling through logic gates is very fast, but not 
+						simultaneous. In order for the next full adder to start it’s 
+						computation, it must receive the carry in signal from the last
+						full adder.<br><br>
+
+						The full adder following also has to wait for the one before it 
+						to get last bit of the sum.<br><br>
+						This waiting time is called propagation delay.
+					</div>
+					<iframe id="ripple_column_addition" src="widgets/html/ripple_column_addition.html" frameborder=0></iframe>
+				</section>
+				<section id="page26" class="page26" >
+					<div class="chapterHeading">The 4-bit Ripple Carry Adder</div>
+					<iframe id="ripple" src="widgets/html/ripple.html" frameborder=0></iframe>
+				</section>
+				<section id="page27" class="page27" >	
+					<div class="left ">
+						<div class="chapterHeading">Improving on the Ripple Carry Adder</div>
+						The propagation delay from the time the adder starts obtaining the first carry to the time it gets the last carry out in a ripple carry adder means that for an n-bit adder, the n-th adder must wait n times the propagation delay of one full adder. For example, if there are 64-bit numbers being added together, the last bit and its carry-out would have had to wait 64 times the propagation delay of each of the full adders.<br><br>
+						This lag is exacerbated when larger number of bits are being added together.<br><br>
+
+						There are other types of adders. The most efficient currently is called the Carry-Look Ahead Adder. The trade off with the Carry-Look Ahead adder is that it uses many more logic gates than the Ripple-Carry Adder, but is much faster.<br><br>
+					</div>
+					<div class="right">
+						The reason that the Ripple-Carry adder is slow is because the carrys must ripple through the circuit, one at a time,  as this is how the circuit is set up. 
+						<br><br>
+						However, if the circuit could recieve all of carrys at the same time, then all the bits of the sum would occur at once, instead of obtaining them one bit at a time.
+					</div>
+				</section>
+				<section id="page28" class="page28" >
+					<div class="left">
+						<div class="chapterHeading">The Carry Look Ahead Adder</div>
+						To get all the carry-outs at the same time, we can rely on the following equations:<br>
+						<p class="indent1">	
+							c<sub>1</sub> =	g<sub>0</sub>+p<sub>0</sub>c<sub>0</sub><br>
+							c<sub>2</sub> =	g<sub>1</sub>+p<sub>1</sub>c<sub>1</sub><br>
+							c<sub>3</sub> =	g<sub>2</sub>+p<sub>2</sub>c<sub>2</sub><br>
+							c<sub>4</sub> =	g<sub>3</sub>+p<sub>3</sub>c<sub>3</sub><br>
+						</p>
+						Note that all of the equations follow the form:	
+
+						<p class="indent1">	c<sub>i</sub>+1 = g<sub>i</sub>+p<sub>i</sub>c<sub>i</sub></p>
+						
+						where :
+						
+						<p class="indent1">	
+							i goes from 1 to 4, <br>
+							c<sub>0</sub> is the intial carry in,<br>
+							g<sub>i</sub> is called the ‘generate’ term, from A<sub>i</sub> AND B<sub>i</sub><br>
+							p<sub>i</sub> is called the ‘propagate‘ term, from A<sub>i</sub> OR B<sub>i</sub><br><br>
+						</p>
+					</div>
+					<div class="right">
+						It looks as though each c<sub>i</sub>+1 would depend on c<sub>i</sub>, indicating a delay, but since all the p’s and g’s  are received simultaneously, the equations can be expanded:<br><br>
+
+						c<sub>1</sub> =	g<sub>0</sub>+p<sub>0</sub>c<sub>0</sub><br>
+						c<sub>2</sub> =	g<sub>1</sub>+p<sub>1</sub>c<sub>1</sub>	= 	g<sub>1</sub>+p<sub>1</sub>(g<sub>0</sub>+p<sub>0</sub>c<sub>0</sub>)<br>
+						c<sub>3</sub> =	g<sub>2</sub>+p<sub>2</sub>c<sub>2</sub>	=	g<sub>2</sub>+p<sub>2</sub>(g<sub>1</sub>+p<sub>1</sub>(g<sub>0</sub>+p<sub>0</sub>c<sub>0</sub>))<br>
+						c<sub>4</sub> =	g<sub>3</sub>+p<sub>3</sub>c<sub>3</sub>	=	g<sub>3</sub>+p<sub>3</sub>(g<sub>2</sub>+p<sub>2</sub>(g<sub>1</sub>+p<sub>1</sub>(g<sub>0</sub>+p<sub>0</sub>c<sub>0</sub>)))<br><br>
+
+						When there are more bits being
+						added, say in a 16-bit or 32-bit 
+						adder, the number of logic gates
+						increases, but it takes the same
+						amount of time to arrive at the 
+						sum.			
+					</div>
+				</section>
+				<section id="page29" class="page29" >
+					<div ID="claHeader" class="chapterHeading">The Carry Look Ahead Adder</div>
+					<img border="0" id="cla"  src="images/cla.png" >	
+				</section>
+				<section id="page30" class="page30">
+					<div class="chapterHeading references">References</div>
+					<div class="left">
+						<span class="chapterHeading">Computer Organization and Design:<br> The Hardware / Software Interface</span><br> 
+						David Patterson and John L. Hennessy, 4th Edition<br>
+						ISBN 978-0-12-374493-7<br>
+						2009, Morgan Kaufmann Publishers<br><br>
+					
+
+						<span class="chapterHeading">Digital Design: Principles and Practices</span><br>
+						John F. Wakerly, 3rd Edition - updated<br>
+						ISBN 0-13-089891-1<br>
+						2001, Prentice Hall<br><br>
+					
+						<span class="chapterHeading">Fundamentals of Electrical Circuits </span><br>
+						Charles K. Alexander and Matthew N.O. Sadiku,<br>
+						3rd Edition<br>
+						ISBN 10-0-07-297718-3<br>
+						2007, McGraw-Hill<br><br>
+					</div>
+					<div class="right">
+						<span class="chapterHeading">Digital Design and Computer Architecture</span> 
+						<br>David M. Harris and Sarah L. Harris, 2nd Edition<br>
+						ISBN 978-0-12-394424-5<br>
+						2013, Morgan Kaufmann Publishers<br><br>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
