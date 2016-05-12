@@ -9,7 +9,7 @@ define([
   $(document).ready(function() {
       $('#fullpage').fullpage({
         //Navigation
-        anchors:['m', 'hello', 'work', 'projects', 'contact'],
+        anchors:['m', 'hello', 'projects', 'work', 'contact'],
 
         //Scrolling
         css3: true,
