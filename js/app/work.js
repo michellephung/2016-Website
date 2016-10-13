@@ -22,6 +22,12 @@ define([
           }, i*150);
         });
       }, 1000);
+
+      setTimeout(function () {
+        work.each(function (i, el) {
+          $(el).addClass('gray');
+        });
+      }, 4000);
     }
   }
 

@@ -6,21 +6,28 @@ define([
       this.flashSubtitles();
     },
     flashSubtitles: function () {
-      var work = $('#projects-div .body .subtitle');
+      var projects = $('#projects-div .body .subtitle');
       //flash of titles
-      work.each(function (i, el) {
+      projects.each(function (i, el) {
         setTimeout(function () {
           $(el).addClass('fadein');
         }, i*150);
       });
 
       setTimeout(function () {
-        work.each(function (i, el) {
+        projects.each(function (i, el) {
           setTimeout(function () {
             $(el).removeClass('fadein');
+            $(el).addClass('gray');
           }, i*150);
         });
       }, 600);
+
+      setTimeout(function () {
+        projects.each(function (i, el) {
+          $(el).addClass('gray');
+        });
+      }, 4000);
     }
   }
 
