@@ -25,9 +25,11 @@ define([
 
       setTimeout(function () {
         work.each(function (i, el) {
-          $(el).addClass('gray');
+          setTimeout(function () {
+            $(el).addClass('gray');
+          }, i*150);
         });
-      }, 4000);
+      }, 1000);
     }
   }
 
