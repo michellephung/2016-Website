@@ -186,6 +186,12 @@ html, body {
       &:hover {
         a {
           color: #a38938;
+          &::after{
+            content: '>';
+            color: $medGray;
+            font-size: 10px;
+            margin-left: 15px;
+          }
         }
         .subtitle {
           color: black;
