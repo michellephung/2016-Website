@@ -3,7 +3,7 @@
 	var button,
 		symbol,
 		disabledColor = "#A9A4AC",
-		interactiveColor = "#7922A2";
+		interactiveColor = "#ff9800";
 
 	$(function() {
 
@@ -14,19 +14,11 @@
 		pg7_not();
 		
 		$( "#chromeinstructions" )
-			.fadeOut( 10000 )
+			.addClass('fadeAway')
 			.click(function(){
 				$(this).hide();
 			});
-		//listeners
-		
-		$('.page1').click(function(){
-			 $(".main").moveTo(30);
-		});
 
-		$('#page2_scrollInstruction').click(function(){
-			$(".main").moveTo(3);
-		});
 	});
 
 	var binaryequaldecimal = function(){
@@ -145,8 +137,8 @@
     		});
 		
 		var shorten_output_line = paper.rect(165,77,10,5).attr({
-    		'fill': '#a5a5a5',
-      		'stroke':"#a5a5a5"
+    		'fill': '#fff',
+      		'stroke':"#fff"
     	});
     	
     	var out_z = paper.text(173,80,"F")

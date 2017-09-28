@@ -39,21 +39,19 @@
 
 	<body>
 		<div id="introduction">
-			<h1>Future Book: 
-			Interactive Simulation
-			</h1>
 			<div id="chromeinstructions">
 				Important : All
-				<span class="widget">purple</span> elements are clickable. 
+				<span class="widget">orange</span> elements are clickable. 
 			</div>
 		</div>
 		<div id="bookcontent">
 			<div class="main">
 				<section id="page1" class="page1" >
 						<h1 id="title">Fundamentals of Digital Design</h1>
-						<div id="synopsis">A story of how mathematics, logic, and physical transistors combine to create computers.</div>
-						
-						<div id="byline">by Michelle Phung </div>
+						<div id="synopsis">
+							A story of how mathematics, logic, and physical transistors combine to create computers.
+						</div>
+						<div>by Michelle Phung </div>
 						
 				</section>
 				<section id="page2" class="page2" >
@@ -417,10 +415,14 @@
 						</div>
 					</div>
 					<div class='right'>
-						<div class="rightlabel adlabel1">decimal addition</div>
-						<iframe id="decimal-addition" src="widgets/html/ch2p3_sum.html" frameBorder="0"></iframe>
-						<div class="rightlabel adlabel2">binary addition</div>
-						<iframe id="decimal-addition" src="widgets/html/binary_sum.html" frameBorder="0"></iframe>
+						<div id="sum_widget_1">
+							<div class="rightlabel adlabel1">decimal addition</div>
+							<iframe id="decimal-addition" src="widgets/html/ch2p3_sum.html" frameBorder="0"></iframe>
+						</div>
+						<div id="sum_widget_2">
+							<div class="rightlabel adlabel2">binary addition</div>
+							<iframe id="decimal-addition" src="widgets/html/binary_sum.html" frameBorder="0"></iframe>
+						</div>
 					</div>
 				</section>
 				<section id="page7" class="page7" >
@@ -462,7 +464,7 @@
 					<div><b>Truth Tables</b> can quickly show the result of an operation on the inputs. Each operation has it’s own truth table. Logic gates can have more than two inputs but the most shown here are two. For gates with more than two inputs, a different truth table has to be made, but the rules stay the same in each case.<br><br>
 					</div>
 
-					<div>Addition (pictured below) is not a gate, but an operation. Very similarly, gates act as operators between it's inputs. It is the basis of math, and a computer can be thought of as a very complex adder. On the right, the truth table will highlight the line containing the inputs (as you <span class="interactive" >click</span> on the them), and the resulting output.</div>
+					<div id="pg8_second_text">Addition (pictured below) is not a gate, but an operation. Very similarly, gates act as operators between it's inputs. It is the basis of math, and a computer can be thought of as a very complex adder. On the right, the truth table will highlight the line containing the <span class="interactive">inputs</span>, and the resulting output.</div>
 
 
 					<div class="allLogicGates">

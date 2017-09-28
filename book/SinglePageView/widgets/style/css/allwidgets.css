@@ -61,7 +61,7 @@ html, body {
 }
 /* line 66, ../scss/_ch2p3_add_slides_.scss */
 .slider-widget .blue {
-  color: #18e99f;
+  color: #CE93D8;
 }
 /* line 71, ../scss/_ch2p3_add_slides_.scss */
 .slider-widget .navigation {
@@ -80,12 +80,13 @@ html, body {
 }
 /* line 84, ../scss/_ch2p3_add_slides_.scss */
 .slider-widget .navigation #forward_txt, .slider-widget .navigation #back_txt {
-  color:#7922A2;
+  color:#ff9800;
   font-size: 24px;
+  cursor: pointer;
 }
 /* line 88, ../scss/_ch2p3_add_slides_.scss */
 .slider-widget .navigation .nav-01 {
-  color: #ffa347;
+  color: #2196f3;
 }
 
 /* line 1, ../scss/_ch2p3_sum_.scss */
@@ -163,7 +164,7 @@ html, body {
 .sum-widget .top_click {
   height: 50%;
   width: 100%;
-  background-color: #8B008B;
+  background-color: #FF9800;
   position: relative;
   left: 0;
   top: -100px;
@@ -174,7 +175,7 @@ html, body {
 .sum-widget .bot_click {
   height: 50%;
   width: 100%;
-  background-color: #8B008B;
+  background-color: #FF9800;
   position: relative;
   left: 0;
   top: -100px;

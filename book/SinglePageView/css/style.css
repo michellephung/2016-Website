@@ -10,7 +10,6 @@
 
 body {
 	color: black;
-	background-color: #DDD6D6;//#9C6A6E;
 	font-family: Source+Sans+Pro;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -31,7 +30,7 @@ body,input,textarea,select
 	text-shadow: 0 0 0.5px rgba(58,57,57,0.25);
 	-webkit-text-stroke: 0.25px;
 	margin-left: 40px;
-	margin-top: 40px;
+	margin-top: 104px;
  }
 
 
@@ -41,26 +40,35 @@ font-family: 'Source Sans Pro', sans-serif;
  }
 
 #introduction{
-	//width: 1005px;
 	margin-left: 45px;
 }
+
 #chromeinstructions{
 	position:fixed;
 	top:12px;
 	right:0px;
-	width:600px;
-	padding: 20px 0 20px 0;
+	width:400px;
+	padding: 20px 20px 20px 0;
 	text-align: right;
 	z-index: 10;
-	background: #DDD6D6;
+	background: #c9ff89;
+  -webkit-transition: background 5s linear;
+  -moz-transition: background 5s linear;
+  -ms-transition: background 5s linear;
+  -o-transition: background 5s linear;
+  transition: background 5s linear;
+}
+
+#chromeinstructions.fadeAway{
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #bookcontent{
-	width: 1059px;
-	position: relative;
-	top:0px;
-	margin-top: 35px;
-	margin-left: 40px;
+	width: 1060px;
+  top: 0px;
+  margin-left: 40px;
+  margin: auto;
+  overflow: hidden;
 }
 
 #inside{
@@ -85,13 +93,6 @@ section{
 	margin-top: 75px;
 	margin-left: 45px;
 	width: 1000px;
-}
-
-#byline{
-	margin-top:250px;
-	display: 
-	inline-block;
-	width: 200px;
 }
 
 #title{
@@ -180,7 +181,7 @@ section{
 }
 
 .widget{
-	color:purple;
+	color: #ff9800;
 }
 
 .left{
@@ -243,7 +244,8 @@ br {
 }
 
 .interactive{
-    color:#7922A2;
+    color: #ff9800;
+    cursor: pointer;
 }
 
 .i1{
@@ -410,7 +412,13 @@ br {
 	top: 553px;
 	left: 933px;
 	z-index:99;
-	cursor:pointer;
+}
+
+#page4 #w1_dec{
+  position: relative;
+  top: -7px;
+  left: 0px;
+  z-index:99;
 }
 
 
@@ -449,8 +457,13 @@ br {
 	-ms-transform:rotate(-90deg); /* IE 9 */
 	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
 	position: absolute;
-	left: 908px;
+	left: 309px;
 	width: 200px;
+}
+
+#sum_widget_1,
+#sum_widget_2 {
+  position: relative;
 }
 
 .adlabel1{
@@ -936,4 +949,8 @@ br {
 .page30 br, .page16 br{
 	margin: 0;
 	display: inline;
+}
+
+#pg8_second_text{
+  margin-bottom: 20px;
 }
