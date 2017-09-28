@@ -11,7 +11,7 @@
   green = '#0f0';
   blue = "#00adef";
   purple = "#8A2BE2";
-  clickable = '#7922A2';
+  clickable = '#ff9800';
   red = "#B20000";
   darkgray = '#767676';
   gray = "#999";
@@ -59,7 +59,8 @@
     clickables = g.set().push(gate_input_a = g.text(45, 65, "A"), gate_input_b = g.text(45, 95, "B")).attr({
       'font-size': '18px',
       'fill': clickable,
-      'font-family': fontfamily
+      'font-family': fontfamily,
+      cursor: 'pointer'
     });
     gate_output_c = g.text(185, 80, "C").attr({
       'font-size': '18px',
@@ -92,10 +93,12 @@
       fill: darkgray
     });
     transistorB.attr({
-      fill: clickable
+      fill: clickable,
+      cursor: 'pointer'
     });
     transistorA.attr({
-      fill: clickable
+      fill: clickable,
+      cursor: 'pointer'
     });
     toggle = function(bit) {
       if (bit === 1 || bit === '1') {

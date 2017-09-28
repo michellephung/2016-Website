@@ -473,9 +473,9 @@
 							<div id="plus_gate_0" class="onegate "></div>
 							<div id="plus_tt_0" class=" tt"></div>
 							<div class="labels">
-								<div class="inputx " id="plus_0_xlabel">input x</div>
-								<div class="inputy " id="plus_0_ylabel">input y</div>
-								<div class="outputz " id="plus_0_zlabel">output z</div>
+								<div class="inputx " id="plus_0_xlabel">x</div>
+								<div class="inputy " id="plus_0_ylabel">y</div>
+								<div class="outputz " id="plus_0_zlabel">z</div>
 							</div>
 							<div id="thisisTT">This type of chart is a called a truth table. </div>
 						</div>
@@ -485,9 +485,9 @@
 							<div id="and_gate_0" class="onegate "></div>
 							<div id="and_tt_0" class=" tt"></div>
 							<div class="labels">
-								<div class="inputx " id="and_0_xlabel">input x</div>
-								<div class="inputy " id="and_0_ylabel">input y</div>
-								<div class="outputz " id="and_0_zlabel">output z</div>
+								<div class="inputx " id="and_0_xlabel">x</div>
+								<div class="inputy " id="and_0_ylabel">y</div>
+								<div class="outputz " id="and_0_zlabel">z</div>
 							</div>
 							<div class="and_0_arrows">
 								<div><img src="images/arrow.png" alt="00">if the x input is 0 and the y input is 0, then the result is 0</div>
@@ -501,13 +501,13 @@
 					</div>		
 				</section>
 				<section id="page9" class="page9" >
-					<div>
+					<div id="pg9_text">
 						<span class="chapterHeading">Each of the gates have inputs on the left hand side.</span>
 
 						The NOT gate takes one input (on the left hand side), and results in one output
 						(on the right hand side). 
 
-						<span class="highlight">Play</span> with the inputs of the logic gates by clicking on the purple variables. 
+						<span class="highlight">Play</span> with the inputs of the logic gates by clicking on the orange variables. 
 
 						The corresponding output will change as a result of the inputs
 						and the truth table will highlight which outcome is currently being addressed.
@@ -519,9 +519,9 @@
 							<div class="explaination">The OR gate outputs a true signal in cases where eithere one of the inputs are true. It's output is only false when both inputs are false.</div>
 							<div id="or_tt" class="tt"></div>
 							<div class="labels">
-								<div class="inputx">input x</div>
-								<div class="inputy">input y</div>
-								<div class="outputz">output z</div>
+								<div class="inputx">x</div>
+								<div class="inputy">y</div>
+								<div class="outputz">z</div>
 							</div>
 						</div>
 						<div class="row">
@@ -530,8 +530,8 @@
 							<div class="explaination">The NOT gate outputs the opposite of the input. </div>
 							<div id="not_tt" class="tt"></div>
 							<div class="labels">
-								<div class="inputNOT">input x</div>
-								<div class="outputNOT">output x'</div>
+								<div class="inputNOT">x</div>
+								<div class="outputNOT">x'</div>
 							</div>
 						</div>
 						<div class="row">
@@ -540,9 +540,9 @@
 							<div class="explaination">The XOR gate outputs a true signal if the inputs are not the same.</div>
 							<div id="xor_tt" class=" tt"></div>
 							<div class="labels">
-								<div class="inputx">input x</div>
-								<div class="inputy">input y</div>
-								<div class="outputz">output z</div>
+								<div class="inputx">x</div>
+								<div class="inputy">y</div>
+								<div class="outputz">z</div>
 							</div>
 						</div>
 					</div>
@@ -556,9 +556,9 @@
 							
 							<div id="nand_tt" class="tt"></div>
 							<div class="labels">
-								<div class="inputx">input x</div>
-								<div class="inputy">input y</div>
-								<div class="outputz">output z</div>
+								<div class="inputx">x</div>
+								<div class="inputy">y</div>
+								<div class="outputz">z</div>
 							</div>
 						</div>
 							
@@ -568,9 +568,9 @@
 							<div class="explaination">The NOR gate outputs a true signal in cases when both inputs are false. Otherwise, the result is false.</div>
 							<div id="nor_tt" class=" tt "></div>
 							<div class="labels">
-								<div class="inputx">input x</div>
-								<div class="inputy">input y</div>
-								<div class="outputz">output z</div>
+								<div class="inputx">x</div>
+								<div class="inputy">y</div>
+								<div class="outputz">z</div>
 							</div>
 						</div>
 							
@@ -580,9 +580,9 @@
 							<div class="explaination">The XNOR gate outputs a true signal if both inputs are the same.</div>
 							<div id="nxor_tt" class=" tt"></div>
 							<div class="labels">
-								<div class="inputx">input x</div>
-								<div class="inputy">input y</div>
-								<div class="outputz">output z</div>
+								<div class="inputx">x</div>
+								<div class="inputy">y</div>
+								<div class="outputz">z</div>
 							</div>
 						</div>
 					</div>
@@ -612,19 +612,15 @@
 					<div>
 						<div class = "chapterHeading">Inside a Chip’s Transistors:</div>
 
-						Within each logic gate in the physical world,
-								are arrays of transistors made of silicon.
+						Physical logic gates are arrays of transistors made of silicon.
 
-								Many chip makers and software 
-								giants began their technological journey in the
-								San Francisco Bay Area, using the chemical
-								element ‘silicon’. The nickname ‘Silicon Valley’ 
-								comes from this fact.
+						The nickname ‘Silicon Valley’ comes from the fact that a lot of chip makers began their business in the
+						SF Bay Area.
 						
 						
 						<iframe id="nptransistors" src="widgets/html/transistors.html" frameborder=0></iframe>
 
-						<DIV> Electricity flows from one point in space another, it is drawn to the destination point, like water falls to the ground. Imagine that electricy is flowing down towards the ground in these diagrams, and control the flow using the purple numbers on left side of each transistor. 
+						<DIV> Electricity flows from one point in space another, it is drawn to the destination point, like water falls to the ground. Imagine that electricy is flowing down towards the ground in these diagrams, and control the flow using the orange numbers on left side of each transistor. 
 						</DIV>
 					</div>
 				</section>
@@ -633,7 +629,7 @@
 					<iframe id="andTransistors"  src="widgets/html/inside_and_gate.html" class="gateTransistor" frameborder=0></iframe>
 					<div class="gateTrans_label">
 						
-						<p>You can click on the purple elements<br> to change the diagrams.</p>
+						<p>You can click on the orange elements<br> to change the diagrams.</p>
 					</div>
 					<div class="gateTransitor_text">
 						<p>The diagram above shows how a series of transistors (three transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an AND gate.</p>
@@ -647,7 +643,7 @@
 					<iframe id="orTransistors"  class="gateTransistor"src="widgets/html/or-transistor.html" frameborder=0></iframe>
 					<div class="gateTrans_label">
 						
-						<p>You can click on the purple elements<br> to change the diagrams.</p>
+						<p>You can click on the orange elements<br> to change the diagrams.</p>
 					</div>
 					<div class="gateTransitor_text">
 						<p>The diagram above shows how a series of transistors (three transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an OR gate.</p>
@@ -659,7 +655,7 @@
 					<iframe  id="xorTransistors" class="gateTransistor" src="widgets/html/xor-transistor.html" frameborder=0></iframe>
 					<div class="gateTrans_label">
 						
-						<p>You can click on the purple elements<br> to change the diagrams.</p>
+						<p>You can click on the orange elements<br> to change the diagrams.</p>
 					</div>
 					<div class="gateTransitor_text">
 						<p>The diagram above shows how a series of transistors (five transistors in this diagram) can be arranged so that the inputs and output to the grouping behaves as an XOR gate.</p>
@@ -679,7 +675,7 @@
 
 							This happens when x=1 and y=1, and subsequently the carry=1 and sum=0, which is read as output=10, the correct sum of 1+1=10.<br><br>
 
-							<span class="highlight">Click</span> on the purple gate labels<br> to see the truth tables, and on <br>the inputs to change the diagram.
+							<span class="highlight">Click</span> on the orange gate labels<br> to see the truth tables, and on <br>the inputs to change the diagram.
 						</div>
 					</div>
 					<div class="right">
@@ -715,7 +711,7 @@
 				<section id="page18" class="page18" >
 					<div><iframe id="fa-transistor" src="widgets/html/fulladder-transistors.html" frameborder=0></iframe></div>
 					<div>
-						<span class="chapterHeading">The Full Adder.</span> This diagram is interactive. You can click and change the purple inputs on the left hand side. You can also view the transistor overlay by clicking on the purple circles below the diagram. The two circles show three views: a transistor view (dark purple), a gate view (light purple), and a combination of both (click in the overlapping space of the two circles).
+						<span class="chapterHeading">The Full Adder.</span> This diagram is interactive. You can click and change the orange inputs on the left hand side. You can also view the transistor overlay by clicking on the orange circles below the diagram. The two circles show three views: a transistor view (dark orange), a gate view (light orange), and a combination of both (click in the overlapping space of the two circles).
 					</div>
 				</section>
 				<section id="page19" class="page19" >

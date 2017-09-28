@@ -7,7 +7,7 @@
   yellow = '#FFE303';
   green = '#0f0';
   purple = "#8A2BE2";
-  clickable = '#7922A2';
+  clickable = '#ff9800';
   red = "#B20000";
   darkgray = '#767676';
   powerBar = darkgray;
@@ -39,15 +39,21 @@
       'text-anchor': 'end',
       'font-family': fontfamily
     });
-    columnLabels = g.set().push(inputa = g.text(265, 30, "A"), inputb = g.text(301, 30, "B"), outputc = g.text(341, 30, "C")).attr({
+    columnLabels = g.set().push(
+      inputa = g.text(265, 30, "A"), 
+      inputb = g.text(301, 30, "B"),
+      outputc = g.text(341, 30, "C")).attr({
       'font-size': '18px',
       'fill': darkgray,
       'font-family': fontfamily
     });
-    clickables = g.set().push(gate_input_a = g.text(45, 65, "A"), gate_input_b = g.text(45, 95, "B")).attr({
+    clickables = g.set().push(
+      gate_input_a = g.text(45, 65, "A"),
+      gate_input_b = g.text(45, 95, "B")).attr({
       'font-size': '18px',
       'fill': clickable,
-      'font-family': fontfamily
+      'font-family': fontfamily,
+      cursor: 'pointer'
     });
     gate_output_c = g.text(185, 80, "C").attr({
       'font-size': '18px',
@@ -82,12 +88,14 @@
     inputA = r.text(100, 175, "0").attr({
       'font-size': '30px',
       fill: clickable,
-      'font-family': fontfamily
+      'font-family': fontfamily,
+      cursor: 'pointer'
     });
     inputB = r.text(100, 275, "0").attr({
       'font-size': '30px',
       fill: clickable,
-      'font-family': fontfamily
+      'font-family': fontfamily,
+      cursor: 'pointer'
     });
     out = r.text(490, 150, "Output").attr({
       'font-size': '30px',

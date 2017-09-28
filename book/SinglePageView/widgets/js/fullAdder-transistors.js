@@ -12,7 +12,7 @@ May 15th, 2012
 
 
 (function() {
-  var black, blue, connection_dot_r, fontfamily, gray, orange, red, signals, teal, white;
+  var black, interactive_color, connection_dot_r, fontfamily, gray, orange, red, signals, teal, white;
 
   black = '#000';
 
@@ -20,15 +20,15 @@ May 15th, 2012
 
   gray = '#808080';
 
-  blue = '#7922A2';
+  interactive_color = '#ff9800';
 
   orange = white;
 
   teal = '#18e99f';
 
-  lightPurple = "#a43bd6";
+  lightPurple = interactive_color;
   
-  darkPurple ="#7922a3";
+  darkPurple = '#f57c00';
 
   red = "#f00";
 
@@ -66,8 +66,9 @@ May 15th, 2012
     }), signal_text.push(and2_gate1 = fa.text(340, 307, "0"), and2_gate2 = fa.text(340, 320.5, "0"), and2_gate3 = fa.text(374.5, 314, "1")), pwr_txt.push(and2_pwr1 = fa.text(360, 285, "pwr"), and2_pwr2 = fa.text(390, 285, "pwr")), gnd_txt.push(and2_gnd1 = fa.text(360, 335, "gnd"), and2_gnd2 = fa.text(390, 335, "gnd")), or_transistor_gates = fa.path("M557,256.75" + transistor_gate_path + "M583,256.75" + transistor_gate_path + "M615,256.75" + transistor_gate_path).attr({
       stroke: black
     }), signal_text.push(or_gate1 = fa.text(551, 263, "0"), or_gate2 = fa.text(577.5, 263, "0"), or_gate3 = fa.text(609.5, 263, "1")), pwr_txt.push(or_pwr1 = fa.text(580, 225, "pwr"), or_pwr2 = fa.text(625, 225, "pwr")), gnd_txt.push(or_gnd1 = fa.text(569, 286, "gnd"), or_gnd2 = fa.text(595, 286, "gnd"), or_gnd3 = fa.text(625, 286, "gnd")), input_signal_text = fa.set().push(inputA = fa.text(75, 85, "0"), inputB = fa.text(75, 100, "0"), inputCI = fa.text(75, 125, "0")).attr({
-      fill: blue,
-      'font-size': '16px'
+      fill: interactive_color,
+      'font-size': '16px',
+      cursor: 'pointer'
     }), output_signal_text = fa.set().push(sum = fa.text(655, 87, "0"), carryOut = fa.text(655, 243, "0")).attr({
       fill: black,
       'font-size': '16px'

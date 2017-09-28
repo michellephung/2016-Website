@@ -547,6 +547,8 @@ br {
   width: 35px;
   display: inline-block;
   vertical-align: top;
+  margin-top: 10px;
+  font-size: 15px;
 }
 /* line 43, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels {
@@ -560,55 +562,28 @@ br {
 }
 /* line 49, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels .inputx {
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-  top: -161px;
-  left: 681px;
+  top: -145px;
+  left: 686px;
 }
 /* line 56, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels .inputy {
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-  top: -194px;
-  left: 717px;
+  top: -178px;
+  left: 723px;
 }
 /* line 63, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels .outputz {
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-  top: -230px;
-  left: 764px;
-  width: 82px;
+  top: -209px;
+  left: 777px;
 }
 /* line 71, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels .inputNOT {
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-  top: -157px;
-  left: 713px;
+  top: -145px;
+  left: 725px;
 }
 /* line 79, ../scss/_2logicgates_.scss */
 .allLogicGates .row .labels .outputNOT {
-  transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-45deg);
-  /* Safari and Chrome */
-  top: -199px;
-  left: 755px;
-  width:100px;
+  top: -177px;
+  left: 773px;
 }
 #plus_gate_0, #and_gate_0{
 	display: inline-block;
@@ -629,33 +604,33 @@ br {
  }
 
 #plus_0_xlabel {
-	top: -155px;
-	left: 378px;
+	top: -135px;
+  left: 384px;
  }
 
  #plus_0_ylabel{
-	top: -187px;
-	left: 413px;
+	top: -168px;
+  left: 420px;
  }
 
  #plus_0_zlabel {
-	top: -221px;
-	left: 457px;
+    top: -200px;
+    left: 472px;
  }
 
  #and_0_xlabel {
-	top: -155px;
-	left: 378px;
+	top: -140px;
+  left: 384px;
  }
 
  #and_0_ylabel{
-	top: -187px;
-	left: 413px;
+  top: -173px;
+  left: 419px;
  }
 
  #and_0_zlabel {
-	top: -221px;
-	left: 457px;
+	top: -205px;
+  left: 473px;
  }
 #and_tt_0{
 	margin-left: 54px;
@@ -951,6 +926,7 @@ br {
 	display: inline;
 }
 
-#pg8_second_text{
+#pg8_second_text,
+#pg9_text{
   margin-bottom: 20px;
 }

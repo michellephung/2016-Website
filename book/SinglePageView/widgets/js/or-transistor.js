@@ -10,7 +10,7 @@
   yellow = '#FFE303';
   green = '#0f0';
   purple = "#8A2BE2";
-  clickable = '#7922A2';
+  clickable = '#ff9800';
   red = "#B20000";
   darkgray = '#767676';
   gray = "#999";
@@ -55,7 +55,8 @@
     clickables = g.set().push(gate_input_a = g.text(45, 65, "A"), gate_input_b = g.text(45, 95, "B")).attr({
       'font-size': '18px',
       'fill': clickable,
-      'font-family': fontfamily
+      'font-family': fontfamily,
+      cursor: 'pointer'
     });
     gate_output_c = g.text(185, 80, "C").attr({
       'font-size': '18px',
@@ -75,11 +76,16 @@
       stroke: black,
       'stroke-width': '3pt'
     });
-    signalText = r.set().push(transistorA = r.text(75, 325, 0), transistorB = r.text(270, 325, 0), transistorC = r.text(420, 200, 1), output = r.text(560, 150, "Output")).attr({
-      'font-size': '30px',
-      fill: clickable,
-      'text-anchor': "start",
-      'font-family': fontfamily
+    signalText = r.set().push(
+      transistorA = r.text(75, 325, 0).attr({cursor: 'pointer'}),
+      transistorB = r.text(270, 325, 0).attr({cursor: 'pointer'}),
+      transistorC = r.text(420, 200, 1),
+      output = r.text(560, 150, "Output")
+      ).attr({
+        'font-size': '30px',
+        fill: clickable,
+        'text-anchor': "start",
+        'font-family': fontfamily
     });
     labels = r.set().push(inputA_label = r.text(75, 300, "input A"), inputB_label = r.text(270, 300, "input B"), output_label = r.text(570, 125, 'output')).attr({
       'font-size': '14px',

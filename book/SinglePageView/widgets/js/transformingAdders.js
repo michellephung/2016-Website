@@ -4,9 +4,9 @@
 
   black = '#000';
   white = "#707070";
-  gray = '#5F5F5F';
+  gray = '#fff';
   orange = '#c0d9d9';
-  clickable = '#7922A2';
+  clickable = '#ff9800';
   red = '#f00';
   fontfamily = '"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif';
 
@@ -31,7 +31,8 @@
     start = r.text(580, 50, "start").attr({
       'font-size': '48px',
       'font-family': fontfamily,
-      fill: clickable
+      fill: clickable,
+      'cursor': 'pointer'
     });
     start.click(function() {
       start.animate({
@@ -43,7 +44,7 @@
       return fadeOutTitle();
     });
     title = r.set().push(
-      fullAdderTitle = r.text(590, 20, "Full Adder").attr('fill', '#CACACA'), 
+      fullAdderTitle = r.text(590, 20, "Full Adder").attr('fill', '#fff'), 
       halfAdderTitle = r.text(590, 20, "Half Adder").attr('fill', black)).attr({
       'font-size': '18px',
       'font-family': fontfamily
@@ -277,7 +278,7 @@
     fadeInTitle = function() {
       return fullAdderTitle.animate({
         fill: black
-      }, 1500, function() {
+      }, 0, function() {
         return reloadPageAppears();
       });
     };
@@ -286,7 +287,8 @@
       reloadPage = r.text(500, 500, "replay").attr({
         'font-size': '30px',
         'font-family': fontfamily,
-        fill: clickable
+        fill: clickable,
+        cursor: 'pointer'
       });
       return reloadPage.click(function() {
         return location.reload();
