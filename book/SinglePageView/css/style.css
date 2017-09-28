@@ -57,8 +57,6 @@ font-family: 'Source Sans Pro', sans-serif;
 
 #bookcontent{
 	width: 1059px;
-	background-color: #CACACA;
-	border:2px solid;
 	position: relative;
 	top:0px;
 	margin-top: 35px;
@@ -73,7 +71,7 @@ font-family: 'Source Sans Pro', sans-serif;
 }
 
 section{
-	border: 1px solid #8F8F8F;
+	border-top: 1px solid #8F8F8F;
 	width:1007px;
 	height: 751px;
 	padding-top:50px;
